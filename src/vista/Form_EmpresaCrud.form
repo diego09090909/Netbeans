@@ -368,6 +368,7 @@
               <Events>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtxt_DiaInicioFocusLost"/>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtxt_DiaInicioMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_DiaInicioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jtxt_mesInicio">

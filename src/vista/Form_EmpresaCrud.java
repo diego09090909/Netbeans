@@ -180,6 +180,11 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                 jtxt_DiaInicioMousePressed(evt);
             }
         });
+        jtxt_DiaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_DiaInicioActionPerformed(evt);
+            }
+        });
 
         jtxt_mesInicio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -712,14 +717,14 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
     private void jtxt_DiaInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioFocusLost
         if (jtxt_DiaInicio.getText().trim().isEmpty()) {
-            jtxt_DiaInicio.setText("11");
+            jtxt_DiaInicio.setText("01");
             jtxt_DiaInicio.setForeground(Color.gray);
 
         }
     }//GEN-LAST:event_jtxt_DiaInicioFocusLost
 
     private void jtxt_DiaInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioMousePressed
-        if (jtxt_DiaInicio.getText().equals("11")) {
+        if (jtxt_DiaInicio.getText().equals("01")) {
             jtxt_DiaInicio.setText("");
             jtxt_DiaInicio.setForeground(Color.BLACK);
         }
@@ -727,14 +732,14 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
     private void jtxt_mesInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mesInicioFocusLost
         if (jtxt_mesInicio.getText().trim().isEmpty()) {
-            jtxt_mesInicio.setText("22");
+            jtxt_mesInicio.setText("02");
             jtxt_mesInicio.setForeground(Color.gray);
 
         }
     }//GEN-LAST:event_jtxt_mesInicioFocusLost
 
     private void jtxt_mesInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_mesInicioMousePressed
-        if (jtxt_mesInicio.getText().equals("22")) {
+        if (jtxt_mesInicio.getText().equals("02")) {
             jtxt_mesInicio.setText("");
             jtxt_mesInicio.setForeground(Color.BLACK);
         }
@@ -754,6 +759,10 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             jtxt_agnoInicio.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_jtxt_agnoInicioMousePressed
+
+    private void jtxt_DiaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_DiaInicioActionPerformed
 
     /**
      * @param args the command line arguments
