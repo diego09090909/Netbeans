@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
 
 import java.awt.Color;
@@ -47,6 +44,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(164, 201, 223));
 
@@ -58,6 +56,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Empresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbtn_EmpresaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_EmpresaMouseExited(evt);
             }
         });
         jbtn_Empresa.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +76,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbtn_PersonalMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_PersonalMouseExited(evt);
+            }
         });
 
         jbtn_Recetas.setBackground(new java.awt.Color(123, 183, 209));
@@ -85,6 +89,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Recetas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbtn_RecetasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_RecetasMouseExited(evt);
             }
         });
 
@@ -97,6 +104,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbtn_InventarioConsumiblesMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_InventarioConsumiblesMouseExited(evt);
+            }
         });
 
         jbtn_InventarioActivos.setBackground(new java.awt.Color(123, 183, 209));
@@ -107,6 +117,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_InventarioActivos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbtn_InventarioActivosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_InventarioActivosMouseExited(evt);
             }
         });
 
@@ -185,7 +198,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
@@ -214,10 +227,10 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -228,7 +241,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,7 +257,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -288,6 +301,26 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbtn_SalirActionPerformed
+
+    private void jbtn_EmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_EmpresaMouseExited
+        jbtn_Empresa.setBackground(new Color(123,183,209));
+    }//GEN-LAST:event_jbtn_EmpresaMouseExited
+
+    private void jbtn_PersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_PersonalMouseExited
+        jbtn_Personal.setBackground(new Color(123,183,209));
+    }//GEN-LAST:event_jbtn_PersonalMouseExited
+
+    private void jbtn_RecetasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_RecetasMouseExited
+        jbtn_Recetas.setBackground(new Color(123,183,209));
+    }//GEN-LAST:event_jbtn_RecetasMouseExited
+
+    private void jbtn_InventarioConsumiblesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseExited
+        jbtn_InventarioConsumibles.setBackground(new Color(123,183,209));
+    }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseExited
+
+    private void jbtn_InventarioActivosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseExited
+        jbtn_InventarioActivos.setBackground(new Color(123,183,209));
+    }//GEN-LAST:event_jbtn_InventarioActivosMouseExited
 
 //    /**
 //     * @param args the command line arguments

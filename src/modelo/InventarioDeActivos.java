@@ -4,58 +4,29 @@ package modelo;
  *
  * @author diego
  */
-public class InventarioDeActivos {
+public class InventarioDeActivos extends Producto {
 
-    private String idProducto;
-    private String nombre;
-    private int cantidad;
-    private int precio;
+    private String tipoActivo;  // "utencilio de limpieza, utencilio de comida"
 
     public InventarioDeActivos() {
     }
 
-    public InventarioDeActivos(String idProducto, String nombre, int cantidad, int precio) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.precio = precio;
+    public InventarioDeActivos(String tipoActivo, String idProducto, String nombre, int cantidad, int precio) {
+        super(idProducto, nombre, cantidad, precio);
+        this.tipoActivo = tipoActivo;
     }
 
-    public String getIdProducto() {
-        return idProducto;
+    public String getTipoActivo() {
+        return tipoActivo;
     }
 
-    public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setTipoActivo(String tipoActivo) {
+        this.tipoActivo = tipoActivo;
     }
 
     @Override
     public String toString() {
-        return "InventarioDeActivos{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + '}';
+        return "InventarioDeActivos{" + "tipoActivo=" + tipoActivo + '}';
     }
 
 }
