@@ -4,7 +4,7 @@ package modelo;
  *
  * @author diego
  */
-public class Personal {
+public abstract class Personal {
 
     private String rut;
     private String cargo;
@@ -13,13 +13,12 @@ public class Personal {
     private String nombres;
     private String fono;
     private String direccion;
-    private int sueldo;
-    private String contrato;
+    private String tipoHorario;
 
     public Personal() {
     }
 
-    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, int sueldo, String contrato) {
+    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario) {
         this.rut = rut;
         this.cargo = cargo;
         this.appaterno = appaterno;
@@ -27,8 +26,7 @@ public class Personal {
         this.nombres = nombres;
         this.fono = fono;
         this.direccion = direccion;
-        this.sueldo = sueldo;
-        this.contrato = contrato;
+        this.tipoHorario = tipoHorario;
     }
 
     public String getRut() {
@@ -87,25 +85,20 @@ public class Personal {
         this.direccion = direccion;
     }
 
-    public int getSueldo() {
-        return sueldo;
+    public String getTipoHorario() {
+        return tipoHorario;
     }
 
-    public void setSueldo(int sueldo) {
-        this.sueldo = sueldo;
-    }
-
-    public String getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(String contrato) {
-        this.contrato = contrato;
+    public void setTipoHorario(String tipoHorario) {
+        this.tipoHorario = tipoHorario;
     }
 
     @Override
     public String toString() {
-        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombres=" + nombres + ", fono=" + fono + ", direccion=" + direccion + ", sueldo=" + sueldo + ", contrato=" + contrato + '}';
+        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombres=" + nombres + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + '}';
     }
+    
 
+   
+    
 }
