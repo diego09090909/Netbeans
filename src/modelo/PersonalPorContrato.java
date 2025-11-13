@@ -17,8 +17,8 @@ public class PersonalPorContrato extends Personal{
     public PersonalPorContrato() {
     }
 
-    public PersonalPorContrato(int sueldo, Date fechaDeInicio, Date fechaDeTermino, boolean esIndefinido, String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario) {
-        super(rut, cargo, appaterno, apmaterno, nombres, fono, direccion, tipoHorario);
+    public PersonalPorContrato(int sueldo, Date fechaDeInicio, Date fechaDeTermino, boolean esIndefinido, String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario, Date fechaNacimiento) {
+        super(rut, cargo, appaterno, apmaterno, nombres, fono, direccion, tipoHorario, fechaNacimiento);
         this.sueldo = sueldo;
         this.fechaDeInicio = fechaDeInicio;
         this.fechaDeTermino = fechaDeTermino;
@@ -59,7 +59,9 @@ public class PersonalPorContrato extends Personal{
 
     @Override
     public String toString() {
-        return super.toString() + "PersonalPorContrato{" + "sueldo=" + sueldo + ", fechaDeInicio=" + fechaDeInicio + ", fechaDeTermino=" + fechaDeTermino + ", esIndefinido=" + esIndefinido + '}';
+        return super.toString()+"PersonalPorContrato{" + "sueldo=" + sueldo + ", fechaDeInicio=" + fechaDeInicio + ", fechaDeTermino=" + fechaDeTermino + ", esIndefinido=" + esIndefinido + '}';
     }
+
+   
    
 }

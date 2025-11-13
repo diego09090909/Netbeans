@@ -2,7 +2,7 @@
 package vista;
 
 import java.awt.Color;
-import java.util.Locale;
+import java.util.Date;
 
 /**
  *
@@ -180,7 +180,7 @@ public class Form_Inicio extends javax.swing.JFrame {
                 jbtn_EntrarActionPerformed(evt);
             }
         });
-        bg.add(jbtn_Entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 130, 50));
+        bg.add(jbtn_Entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

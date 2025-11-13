@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author diego
@@ -14,11 +16,12 @@ public abstract class Personal {
     private String fono;
     private String direccion;
     private String tipoHorario;
+    private Date fechaNacimiento;
 
     public Personal() {
     }
 
-    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario) {
+    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario, Date fechaNacimiento) {
         this.rut = rut;
         this.cargo = cargo;
         this.appaterno = appaterno;
@@ -27,6 +30,7 @@ public abstract class Personal {
         this.fono = fono;
         this.direccion = direccion;
         this.tipoHorario = tipoHorario;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getRut() {
@@ -93,10 +97,20 @@ public abstract class Personal {
         this.tipoHorario = tipoHorario;
     }
 
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     @Override
     public String toString() {
-        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombres=" + nombres + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + '}';
+        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombres=" + nombres + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
+    
+   
     
 
    

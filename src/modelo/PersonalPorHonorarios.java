@@ -1,6 +1,8 @@
 
 package modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author diego
@@ -11,8 +13,8 @@ public class PersonalPorHonorarios extends Personal {
     public PersonalPorHonorarios() {
     }
 
-    public PersonalPorHonorarios(int valorPorHora, String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario) {
-        super(rut, cargo, appaterno, apmaterno, nombres, fono, direccion, tipoHorario);
+    public PersonalPorHonorarios(int valorPorHora, String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario, Date fechaNacimiento) {
+        super(rut, cargo, appaterno, apmaterno, nombres, fono, direccion, tipoHorario, fechaNacimiento);
         this.valorPorHora = valorPorHora;
     }
 
@@ -26,7 +28,9 @@ public class PersonalPorHonorarios extends Personal {
 
     @Override
     public String toString() {
-        return super.toString() + "PersonalPorHonorarios{" + "valorPorHora=" + valorPorHora + '}';
+        return super.toString()+ "PersonalPorHonorarios{" + "valorPorHora=" + valorPorHora + '}';
     }
+
+   
      
 }

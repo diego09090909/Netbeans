@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Empresa;
 
 /**
@@ -411,6 +412,11 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
         jbtn_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbtn_eliminar.setText("Eliminar");
+        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_eliminarActionPerformed(evt);
+            }
+        });
 
         jbtn_Buscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbtn_Buscar.setText("Buscar");
@@ -422,6 +428,11 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
         jbtn_listar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbtn_listar.setText("Listar");
+        jbtn_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_listarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpan_CrudLayout = new javax.swing.GroupLayout(jpan_Crud);
         jpan_Crud.setLayout(jpan_CrudLayout);
@@ -581,7 +592,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_ActualizarActionPerformed
 
     private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbtn_BuscarActionPerformed
 
     private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
@@ -763,6 +774,60 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     private void jtxt_DiaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_DiaInicioActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+        //obtiene el rut ingresado por el usuario
+        String rut = jtxt_Rut.getText().trim();
+
+        //inicializar el registro para llamar el metodo
+        RegistroEmpresas reg = new RegistroEmpresas();
+
+        //devuelve el error si se aprieta borra y no hay rut escrito 
+        if (rut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un RUT para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //mensaje que pregunta si quieres, el 1 es mas que nada un indicador tipo de mensaje
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar?", "Aviso", 1);
+
+        //si o no para borrar y los error
+        if (opcion == JOptionPane.YES_OPTION) {
+            boolean eliminar = reg.eliminar(rut);
+            JOptionPane.showMessageDialog(this, "Empresa Eliminada", "Eliminado", 1);
+        } else {
+            JOptionPane.showMessageDialog(this, "Empresa NO Eliminada", "Eliminada", 2);
+        }
+
+
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
+
+    private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
+       
+        String rut, nombre, fonoFijo, direccion;
+        String diaIni, mesIni, agnioIni, diaTerm, mesTerm, agnioTerm;
+        String fechaIniStr, fechaTermStr;
+        Date fechaInicio = null;
+        Date fechaTermino = null;
+        int cantCasino = 0;
+        int cantEmpleados = 0;
+        boolean contratoIndefinido;
+
+        RegistroEmpresas reg = new RegistroEmpresas();
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
+        
+        rut = jtxt_Rut.getText().trim();
+        
+        if (rut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un rut", "Campo vacio", JOptionPane.WARNING_MESSAGE);
+            
+        }
+        modelo.setRowCount(0);
+
+        
+        
+        
+        
+    }//GEN-LAST:event_jbtn_listarActionPerformed
 
     /**
      * @param args the command line arguments
