@@ -118,4 +118,76 @@ public class RegistroEmpresas {
         return listaEmpresa;
     }
 
+    public boolean actualizar(Empresa empresa) {
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            String query = "UPDATE empresa SET rut = ?,nombre=?,fono_fijo =?,direccion=?,cant_empleado=?,cant_casino =?,contrato_indefinido =?,fecha_inicio=?,fecha_termino=? WHERE rut =?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, empresa.getRut());
+            stmt.setString(2, empresa.getNombre());
+            stmt.setString(3, empresa.getFonoFijo());
+            stmt.setString(4, empresa.getDireccion());
+            stmt.setInt(5, empresa.getCantEmpleados());
+            stmt.setInt(6, empresa.getCantCasino());
+            stmt.setBoolean(7, empresa.isContratoIndefinido());
+            stmt.setDate(8, new java.sql.Date(empresa.getFechaInicio().getTime()));
+
+            if (empresa.getFechaTermino() != null) {
+                stmt.setDate(9, new java.sql.Date(empresa.getFechaTermino().getTime()));
+            } else {
+                stmt.setNull(9, java.sql.Types.DATE);
+            }
+            stmt.setString(10, empresa.getRut());
+            int filas = stmt.executeUpdate();
+
+            stmt.close();
+            cnx.close();
+            return filas > 0;
+
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el Libro: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public Empresa buscarPorRut(String rut) {
+        Empresa empresa = new Empresa();
+
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            String query = "SELECT * FROM empresa WHERE rut = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, rut);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                empresa.setRut(rs.getString("rut"));
+                empresa.setNombre(rs.getString("nombre"));
+                empresa.setFonoFijo(rs.getString("fono_fijo"));
+                empresa.setDireccion(rs.getString("direccion"));
+                empresa.setCantEmpleados(rs.getInt("cant_empleado"));
+                empresa.setCantCasino(rs.getInt("cant_casino"));
+
+                empresa.setContratoIndefinido(rs.getBoolean("contrato_indefinido"));
+                empresa.setFechaInicio(rs.getDate("fecha_inicio"));
+                empresa.setFechaTermino(rs.getDate("fecha_termino"));
+
+            }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al listar el libro: " + e.getMessage());
+
+        }
+        return empresa;
+    }
 }

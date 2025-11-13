@@ -4,6 +4,7 @@ import Controlador.RegistroEmpresas;
 import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,6 +27,10 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     }
 
     public void limpiar() {
+        //agregue esto para que se pueda editar el texto de rut
+        this.jtxt_Rut.setText("");
+        this.jtxt_Rut.setEnabled(true);
+        
         this.jtxt_Rut.setText("");
         this.jtxt_Nombre.setText("");
         this.jtxt_fonoFijo.setText("");
@@ -226,6 +231,12 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("/");
 
+        jtxt_diaTermino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_diaTerminoActionPerformed(evt);
+            }
+        });
+
         jtxt_mesTermino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_mesTerminoActionPerformed(evt);
@@ -387,7 +398,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Rut", "Nombre", "Fono Fijo", "Cant. Empleados", "Cant. Casinos", "Dirección", "Fecha inicio", "Fecha termino", "Contrato indefinido"
+                "Rut", "Nombre", "Fono Fijo", "Dirección", "Cant. Empleados", "Cant. Casinos", "Contrato indefinido", "Fecha inicio", "Fecha termino"
             }
         ));
         jScrollPane1.setViewportView(jtbl_datos);
@@ -449,23 +460,23 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                 .addComponent(jbtn_Actualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jbtn_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtn_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         jpan_CrudLayout.setVerticalGroup(
             jpan_CrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_CrudLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addGroup(jpan_CrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtbtn_agregar)
                     .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_Buscar)
                     .addComponent(jbtn_listar))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         jPanel2.setBackground(new java.awt.Color(123, 183, 209));
@@ -516,7 +527,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                     .addComponent(jbtn_Volver)
                     .addComponent(jbtn_Limpiar)
                     .addComponent(jbtn_Salir))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpan_OpcionesLayout = new javax.swing.GroupLayout(jpan_Opciones);
@@ -534,10 +545,10 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_OpcionesLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpan_Crud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGroup(jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpan_Crud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -588,10 +599,100 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_mesTerminoActionPerformed
 
     private void jbtn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ActualizarActionPerformed
-        // TODO add your handling code here:
+
+        String rut, nombre, fonoFijo, direccion;
+        String diaIni, mesIni, agnioIni, diaTerm, mesTerm, agnioTerm;
+        String fechaIniStr, fechaTermStr;
+        Date fechaInicio = null;
+        Date fechaTermino = null;
+        int cantCasino = 0;
+        int cantEmpleados = 0;
+        boolean contratoIndefinido;
+
+        rut = this.jtxt_Rut.getText();
+        nombre = this.jtxt_Nombre.getText();
+        fonoFijo = this.jtxt_fonoFijo.getText();
+        direccion = this.jtxt_direccion.getText();
+
+        diaIni = this.jtxt_DiaInicio.getText();
+        mesIni = this.jtxt_mesInicio.getText();
+        agnioIni = this.jtxt_agnoInicio.getText();
+
+        diaTerm = this.jtxt_diaTermino.getText();
+        mesTerm = this.jtxt_mesTermino.getText();
+        agnioTerm = this.jtxt_agnoTerrmino.getText();
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        fechaIniStr = diaIni + "/" + mesIni + "/" + agnioIni;
+        try {
+            fechaInicio = formato.parse(fechaIniStr);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Fecha de inicio inválida", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        contratoIndefinido = this.jchk_indefinido.isSelected();
+
+        if (!contratoIndefinido) {
+            fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
+            try {
+                fechaTermino = formato.parse(fechaTermStr);
+            } catch (ParseException e) {
+                JOptionPane.showMessageDialog(this, "Fecha de término inválida", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } else {
+            fechaTermino = null;
+        }
+        //CREA EL NUEVO LIBROEMPRESA y se implementa el actualizar, aparte de los mensajes de error o de aprobacion 
+        Empresa empresa = new Empresa(rut, nombre, fonoFijo, cantCasino, cantEmpleados, direccion, contratoIndefinido, fechaInicio, fechaTermino);
+        RegistroEmpresas reg = new RegistroEmpresas();
+
+        if (reg.actualizar(empresa)) {
+            JOptionPane.showMessageDialog(this, "Empresa actualizada correctamente", "Actualizar", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo actualizar la empresa", "Actualizar", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jbtn_ActualizarActionPerformed
 
     private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
+        String rut = this.jtxt_Rut.getText();
+        RegistroEmpresas reg = new RegistroEmpresas();
+        Empresa empresa = reg.buscarPorRut(rut);
+
+        if (empresa != null) {
+            //este bloquea para que el usuario no edite
+            this.jtxt_Rut.setText(empresa.getRut());
+            this.jtxt_Rut.setEnabled(false);
+            
+            this.jtxt_Nombre.setText(empresa.getNombre());
+            this.jtxt_fonoFijo.setText(empresa.getFonoFijo());
+            this.jtxt_direccion.setText(empresa.getDireccion());
+            this.jtxt_cantEmpleados.setText(String.valueOf(empresa.getCantEmpleados()));
+            this.jtxt_cantCasinos.setText(String.valueOf(empresa.getCantCasino()));
+
+            // Fecha de inicio, tuve que pedir al gpt un calendar para que uniera todo los textos y se dara forma aplica para inicio y termino
+            Date fechaInicio = empresa.getFechaInicio();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fechaInicio);
+            this.jtxt_DiaInicio.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+            this.jtxt_mesInicio.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+            this.jtxt_agnoInicio.setText(String.valueOf(cal.get(Calendar.YEAR)));
+
+            // Contrato indefinido
+            this.jchk_indefinido.setSelected(empresa.isContratoIndefinido());
+
+            // Fecha de término si es que aplica 
+            if (!empresa.isContratoIndefinido() && empresa.getFechaTermino() != null) {
+                cal.setTime(empresa.getFechaTermino());
+                this.jtxt_diaTermino.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+                this.jtxt_mesTermino.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+                this.jtxt_agnoTerrmino.setText(String.valueOf(cal.get(Calendar.YEAR)));
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Empresa no encontrada", "Buscar", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_jbtn_BuscarActionPerformed
 
@@ -636,7 +737,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         agnioTerm = this.jtxt_agnoTerrmino.getText();
 
         fechaIniStr = diaIni + "/" + mesIni + "/" + agnioIni;
-        fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
+
         //Aca realizamos el formato de las fechas
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -644,17 +745,25 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         try {
             fechaInicio = formato.parse(fechaIniStr);
         } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Fecha de inicio inválida (dd/mm/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Fecha de inicio inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
             this.jtxt_DiaInicio.requestFocus();
             return; // ← DETIENE el flujo si la fecha es inválida
         }
 
-        try {
-            fechaTermino = formato.parse(fechaTermStr);
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Fecha de término inválida (dd/mm/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_diaTermino.requestFocus();
-            return;
+        contratoIndefinido = this.jchk_indefinido.isSelected();
+
+        //para que no tuviera error si se agregara el indefinido tuve que agregar esto a sql ALTER TABLE empresa MODIFY fecha_termino DATE NULL;
+        if (!contratoIndefinido) {
+            fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
+            try {
+                fechaTermino = formato.parse(fechaTermStr);
+            } catch (ParseException e) {
+                JOptionPane.showMessageDialog(this, "Fecha de término inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+                this.jtxt_diaTermino.requestFocus();
+                return;
+            }
+        } else {
+            fechaTermino = null; // no se guarda fecha si es indefinido
         }
 
         // Aca Validamos los enteres de casino y empleados
@@ -663,6 +772,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese una cantidad de Casinos valida", "Validación", 2);
             this.jtxt_cantCasinos.requestFocus();
+            return;
         }
 
         try {
@@ -670,6 +780,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese una cantidad de empleados valida", "Validación", 2);
             this.jtxt_cantEmpleados.requestFocus();
+            return;
         }
         //aca dejamos listo el booleano
         contratoIndefinido = this.jchk_indefinido.isSelected();
@@ -690,7 +801,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
     private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
 
-        //este metodo hace que si se da click en contrato indefinido fecha termino queda bloqueado
+        //ehace que si se da click en contrato indefinido fecha termino queda bloqueado
         boolean contratoIndefinido = jchk_indefinido.isSelected();
 
         this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
@@ -803,9 +914,11 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
 
         RegistroEmpresas reg = new RegistroEmpresas();
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
-        modelo.setRowCount(0); // limpiar tabla
+        modelo.setRowCount(0); // Limpiar tabla
 
-        List<Empresa> lista = reg.listarTodos(); // método que devuelve todas las empresas
+        List<Empresa> lista = reg.listarTodos(); // Obtener todas las empresas
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         for (Empresa emp : lista) {
             modelo.addRow(new Object[]{
@@ -813,16 +926,20 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                 emp.getNombre(),
                 emp.getFonoFijo(),
                 emp.getDireccion(),
-                emp.getFechaInicio(),
-                emp.getFechaTermino(),
-                emp.getCantCasino(),
                 emp.getCantEmpleados(),
-                emp.isContratoIndefinido() ? "Indefinido" : "Definido"
+                emp.getCantCasino(),
+                emp.isContratoIndefinido() ? "Indefinido" : "Definido",
+                emp.getFechaInicio() != null ? formato.format(emp.getFechaInicio()) : "",
+                emp.getFechaTermino() != null ? formato.format(emp.getFechaTermino()) : ""
             });
         }
 
 
     }//GEN-LAST:event_jbtn_listarActionPerformed
+
+    private void jtxt_diaTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_diaTerminoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_diaTerminoActionPerformed
 
     /**
      * @param args the command line arguments

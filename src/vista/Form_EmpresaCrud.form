@@ -432,6 +432,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jtxt_diaTermino">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_diaTerminoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jtxt_mesTermino">
               <Events>
@@ -499,12 +502,12 @@
                     <Column editable="true" title="Rut" type="java.lang.Object"/>
                     <Column editable="true" title="Nombre" type="java.lang.Object"/>
                     <Column editable="true" title="Fono Fijo" type="java.lang.Object"/>
+                    <Column editable="true" title="Direcci&#xf3;n" type="java.lang.Object"/>
                     <Column editable="true" title="Cant. Empleados" type="java.lang.Object"/>
                     <Column editable="true" title="Cant. Casinos" type="java.lang.Object"/>
-                    <Column editable="true" title="Direcci&#xf3;n" type="java.lang.Object"/>
+                    <Column editable="true" title="Contrato indefinido" type="java.lang.Object"/>
                     <Column editable="true" title="Fecha inicio" type="java.lang.Object"/>
                     <Column editable="true" title="Fecha termino" type="java.lang.Object"/>
-                    <Column editable="true" title="Contrato indefinido" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -594,11 +597,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jpan_Crud" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <Component id="jpan_Crud" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -626,18 +629,18 @@
                           <Component id="jbtn_Actualizar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jbtn_eliminar" min="-2" pref="93" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jbtn_Buscar" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Component id="jbtn_listar" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jbtn_Buscar" min="-2" pref="83" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jtbtn_agregar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jbtn_Actualizar" alignment="3" max="32767" attributes="0"/>
@@ -645,7 +648,7 @@
                               <Component id="jbtn_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jbtn_listar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -743,7 +746,7 @@
                               <Component id="jbtn_Limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jbtn_Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
