@@ -33,7 +33,18 @@ public class RegistroEmpresas {
             stmt.setInt(6, empresa.getCantCasino());
             stmt.setBoolean(7, empresa.isContratoIndefinido());
             stmt.setDate(8, new java.sql.Date(empresa.getFechaInicio().getTime()));
-            stmt.setDate(9, new java.sql.Date(empresa.getFechaTermino().getTime()));
+
+            if (empresa.getFechaInicio() != null) {
+                stmt.setDate(8, new java.sql.Date(empresa.getFechaInicio().getTime()));
+            } else {
+                stmt.setNull(8, java.sql.Types.DATE); // o mostrar advertencia si es obligatoria
+            }
+
+            if (empresa.getFechaTermino() != null) {
+                stmt.setDate(9, new java.sql.Date(empresa.getFechaTermino().getTime()));
+            } else {
+                stmt.setNull(9, java.sql.Types.DATE);
+            }
 
             stmt.executeUpdate();
             stmt.close();
@@ -93,17 +104,16 @@ public class RegistroEmpresas {
                 emp.setContratoIndefinido(rs.getBoolean("contrato_indefinido"));
                 emp.setFechaInicio(rs.getDate("fecha_inicio"));
                 emp.setFechaTermino(rs.getDate("fecha_termino"));
-                
+
                 listaEmpresa.add(emp);
 
             }
             rs.close();
             stmt.close();
             cnx.close();
-            
 
         } catch (SQLException e) {
-             System.out.println("Error al listar los EMPRESAS: " +e.getMessage());
+            System.out.println("Error al listar los EMPRESAS: " + e.getMessage());
         }
         return listaEmpresa;
     }
