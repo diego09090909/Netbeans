@@ -22,7 +22,7 @@ public class RegistroActivos {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "INSERT INTO InventarioDeActivos(idProducto,nombre,cantidado,precio,tipoActivo)";
+            String query = "INSERT INTO inventariodeactivos(id_producto,nombre,cantidad,precio,tipo_activo)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, InventarioDeActivos.getIdProducto());
             stmt.setString(2, InventarioDeActivos.getNombre());
@@ -47,7 +47,7 @@ public class RegistroActivos {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "DELETE FROM InventarioDeActivos WHERE idProducto = ?";
+            String query = "DELETE FROM inventariodeactivos WHERE id_producto = ?";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, idProducto);
 
@@ -68,7 +68,7 @@ public class RegistroActivos {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "UPDATE InventarioDeActivos SET nombre = ?,cantidadr=?,precio =?,tipoActivo=? WHERE idProducto =?";
+            String query = "UPDATE inventariodeactivos SET nombre = ?,cantidad=?,precio =?,tipo_activo=? WHERE id_producto =?";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             stmt.setString(1, InventarioDeActivos.getNombre());
@@ -95,18 +95,18 @@ public class RegistroActivos {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "SELECT * FROM InventarioDeActivos order by nombre";
+            String query = "SELECT * FROM inventariodeactivos order by nombre";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 InventarioDeActivos InvAct = new InventarioDeActivos();
-                InvAct.setIdProducto(rs.getString("idProducto"));
+                InvAct.setIdProducto(rs.getString("id_producto"));
                 InvAct.setNombre(rs.getString("nombre"));
                 InvAct.setCantidad(rs.getInt("cantidad"));
                 InvAct.setPrecio(rs.getInt("precio"));
-                InvAct.setTipoActivo("tipoActivo");
+                InvAct.setTipoActivo("tipo_activo");
 
                 lista.add(InvAct);
             }
@@ -143,7 +143,7 @@ public class RegistroActivos {
                 InvAct.setNombre(rs.getString("nombre"));
                 InvAct.setCantidad(rs.getInt("cantidad"));
                 InvAct.setPrecio(rs.getInt("Precio"));
-                InvAct.setTipoActivo("tipoActivo");
+                InvAct.setTipoActivo("tipo_activo");
               
             }
             

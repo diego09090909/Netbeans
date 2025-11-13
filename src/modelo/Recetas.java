@@ -1,32 +1,38 @@
 package modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author diego
  */
 public class Recetas {
 
-    private String id_comida;
+    private int id;
     private String nombre;
     private String tipo;
-    private int preciPlato;
+    private int precioPlato;
+    private Date fechaCreacion;
+    private boolean activo;
 
     public Recetas() {
     }
 
-    public Recetas(String id_comida, String nombre, String tipo, int preciPlato) {
-        this.id_comida = id_comida;
+    public Recetas(int id, String nombre, String tipo, int precioPlato, Date fechaCreacion, boolean activo) {
+        this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
-        this.preciPlato = preciPlato;
+        this.precioPlato = precioPlato;
+        this.fechaCreacion = fechaCreacion;
+        this.activo = activo;
     }
 
-    public String getId_comida() {
-        return id_comida;
+    public int getId() {
+        return id;
     }
 
-    public void setId_comida(String id_comida) {
-        this.id_comida = id_comida;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -45,17 +51,36 @@ public class Recetas {
         this.tipo = tipo;
     }
 
-    public int getPreciPlato() {
-        return preciPlato;
+    public int getPrecioPlato() {
+        return precioPlato;
     }
 
-    public void setPreciPlato(int preciPlato) {
-        this.preciPlato = preciPlato;
+    public void setPrecioPlato(int precioPlato) {
+        this.precioPlato = precioPlato;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     @Override
     public String toString() {
-        return "Recetas{" + "id_comida=" + id_comida + ", nombre=" + nombre + ", tipo=" + tipo + ", preciPlato=" + preciPlato + '}';
+        return "Recetas{" + "id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", precioPlato=" + precioPlato + ", fechaCreacion=" + fechaCreacion + ", activo=" + activo + '}';
     }
+    
+
+  
 
 }
