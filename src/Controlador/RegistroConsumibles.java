@@ -23,7 +23,7 @@ public class RegistroConsumibles {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "INSERT INTO InventarioDeActivos(idProducto,nombre,cantidado,precio,fechaVencimiento)";
+            String query = "INSERT INTO InventarioDeActivos(idProducto,nombre,cantidado,precio,fechaVencimiento)values(?????)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, InventarioConsumibles.getIdProducto());
             stmt.setString(2, InventarioConsumibles.getNombre());

@@ -22,7 +22,7 @@ public class RegistroActivos {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "INSERT INTO inventariodeactivos(id_producto,nombre,cantidad,precio,tipo_activo)";
+            String query = "INSERT INTO inventariodeactivos(id_producto,nombre,cantidad,precio,tipo_activo)values(?????)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, InventarioDeActivos.getIdProducto());
             stmt.setString(2, InventarioDeActivos.getNombre());
