@@ -1,8 +1,11 @@
 
 package vista;
 
+
 import java.awt.Color;
 import java.util.Date;
+import bd.CInicio;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +19,7 @@ public class Form_Inicio extends javax.swing.JFrame {
 
     public Form_Inicio() {
         initComponents();
+               
     }
 
     @SuppressWarnings("unchecked")
@@ -137,6 +141,7 @@ public class Form_Inicio extends javax.swing.JFrame {
 
         jtxt_user.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jtxt_user.setForeground(new java.awt.Color(204, 204, 204));
+        jtxt_user.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jtxt_user.setText("Ingrese su nombre de usuario");
         jtxt_user.setBorder(null);
         jtxt_user.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +202,28 @@ public class Form_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_userActionPerformed
-        // TODO add your handling code here:
+    Form_MenuPrincipal al = new Form_MenuPrincipal();
+    al.setVisible(true);
+        
+    String usuario = jtxt_user.getText().trim();
+    char[] passChars = jtxt_paswd.getPassword();
+    String contrasenia = new String(passChars).trim();
+
+    if (usuario.isEmpty() || contrasenia.isEmpty()) {
+        JOptionPane.showMessageDialog(
+                this,
+                "Por favor, completa usuario y contraseña.",
+                "Campos vacíos",
+                JOptionPane.WARNING_MESSAGE
+        );
+    if (usuario.isEmpty() || contrasenia.isEmpty()) {
+        jtxt_user.requestFocusInWindow();
+    } else {
+        jtxt_paswd.requestFocusInWindow();
+    }
+   }
+
+
     }//GEN-LAST:event_jtxt_userActionPerformed
 
     private void headMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMousePressed
@@ -246,32 +272,29 @@ public class Form_Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_paswdMousePressed
 
     private void jbtn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_EntrarActionPerformed
-        Form_MenuPrincipal al = new Form_MenuPrincipal();
-        al.setVisible(true);
+                                        
+    String usuario = jtxt_user.getText().trim();
+    String contrasenia = String.valueOf(jtxt_paswd.getPassword()).trim();
+
+    if (usuario.isEmpty() || contrasenia.isEmpty()) {
+        JOptionPane.showMessageDialog(
+            this,
+            "Por favor, completa usuario y contraseña.",
+            "Campos vacíos",
+            JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    CInicio login = new CInicio();
+    login.validarUsuario(jtxt_user, jtxt_paswd);
     }//GEN-LAST:event_jbtn_EntrarActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Form_Inicio().setVisible(true));
     }
 

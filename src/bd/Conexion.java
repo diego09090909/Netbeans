@@ -1,29 +1,40 @@
 
 package bd;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author diego
  */
 public class Conexion {
-    
-        public Connection obtenerConexion() {
-        
+             
         Connection connection = null;
         
+        String usuario = "root";
+        String contrasenia = "";
+        String bd = "sistema_cocina";
+        String ip = "localhost";
+        String puerto = "3306";
+        
+        String cadena = "jdbc:mysql://"+ip+":"+puerto+"/"+bd; 
+        
+        public Connection obtenerConexion() {
+
         try {
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
             
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ bd_produccion_casino", "root","");
+            connection = DriverManager.getConnection(cadena, usuario, contrasenia);
             
-            System.out.println("Conexion exitosa!");
+            JOptionPane.showMessageDialog(null,"Conexion exitosa!");
             
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Erro de conexion " + e.getMessage());
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null,"Error de conexion..." + e.getMessage());
         }
         return connection;
     }
