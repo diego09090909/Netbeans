@@ -18,7 +18,7 @@ public class Conexion {
         
         String usuario = "root";
         String contrasenia = "";
-        String bd = "sistema_cocina";
+        String bd = "bd_produccion_casino";
         String ip = "localhost";
         String puerto = "3306";
         
