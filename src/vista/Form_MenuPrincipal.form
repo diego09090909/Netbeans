@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -67,6 +74,7 @@
                   <EmptySpace pref="100" max="32767" attributes="0"/>
               </Group>
               <Component id="jbtn_Salir" alignment="0" max="32767" attributes="0"/>
+              <Component id="jbtn_InventarioActivos1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -84,6 +92,8 @@
                   <Component id="jbtn_InventarioConsumibles" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jbtn_InventarioActivos" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="jbtn_InventarioActivos1" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jbtn_Salir" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
@@ -146,7 +156,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Recetas"/>
+            <Property name="text" type="java.lang.String" value="Minutas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -196,6 +206,27 @@
           <Events>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtn_InventarioActivosMouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtn_InventarioActivosMouseExited"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbtn_InventarioActivos1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d1" green="b7" red="7b" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Inventario"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtn_InventarioActivos1MouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtn_InventarioActivos1MouseExited"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Logo">
@@ -369,7 +400,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6d" green="3a" red="1d" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;div style=&apos;text-align:left;&apos;&gt; -Empresas registradas&lt;br&gt;&lt;br&gt;-Personal por contrato y honorarios&lt;br&gt;&lt;br&gt; -Activos y consumibles&lt;br&gt;&lt;br&gt; -Recetas o registros asociados&lt;br&gt;&lt;br&gt; Selecciona un m&#xf3;dulo del men&#xfa; izquierdo para comenzar a trabajar con la informaci&#xf3;n.  Podr&#xe1;s &lt;b&gt;crear&lt;/b&gt;, &lt;b&gt;editar&lt;/b&gt; o &lt;b&gt;revisar&lt;/b&gt; los datos f&#xe1;cilmente desde las opciones del sistema. &lt;/div&gt; &lt;/html&gt; " noResource="true"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;div style=&apos;text-align:left;&apos;&gt; -Empresas registradas&lt;br&gt;&lt;br&gt;-Personal por contrato y honorarios&lt;br&gt;&lt;br&gt; -Activos y consumibles&lt;br&gt;&lt;br&gt; -Minutas o registros asociados&lt;br&gt;&lt;br&gt; Selecciona un m&#xf3;dulo del men&#xfa; izquierdo para comenzar a trabajar con la informaci&#xf3;n.  Podr&#xe1;s &lt;b&gt;crear&lt;/b&gt;, &lt;b&gt;editar&lt;/b&gt; o &lt;b&gt;revisar&lt;/b&gt; los datos f&#xe1;cilmente desde las opciones del sistema. &lt;/div&gt; &lt;/html&gt; " noResource="true"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

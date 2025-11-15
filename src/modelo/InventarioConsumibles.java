@@ -6,16 +6,38 @@ import java.util.Date;
  *
  * @author diego
  */
-public class InventarioConsumibles extends Producto {
+public class InventarioConsumibles extends Inventario {
 
+    private String unidadMedida;
+    private double costoUnitario;
     private Date fechaVencimiento;
+    private String proveedor;
 
     public InventarioConsumibles() {
     }
 
-    public InventarioConsumibles(Date fechaVencimiento, String idProducto, String nombre, int cantidad, int precio) {
-        super(idProducto, nombre, cantidad, precio);
+    public InventarioConsumibles(String unidadMedida, double costoUnitario, Date fechaVencimiento, String proveedor, int idProducto, String codigo, String nombre, String descripcion, String tipo, int stockActual, int stockMinimo, String ubicacion, String estado) {
+        super(idProducto, codigo, nombre, descripcion, tipo, stockActual, stockMinimo, ubicacion, estado);
+        this.unidadMedida = unidadMedida;
+        this.costoUnitario = costoUnitario;
         this.fechaVencimiento = fechaVencimiento;
+        this.proveedor = proveedor;
+    }
+
+    public String getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    public void setUnidadMedida(String unidadMedida) {
+        this.unidadMedida = unidadMedida;
+    }
+
+    public double getCostoUnitario() {
+        return costoUnitario;
+    }
+
+    public void setCostoUnitario(double costoUnitario) {
+        this.costoUnitario = costoUnitario;
     }
 
     public Date getFechaVencimiento() {
@@ -26,9 +48,12 @@ public class InventarioConsumibles extends Producto {
         this.fechaVencimiento = fechaVencimiento;
     }
 
-    @Override
-    public String toString() {
-        return "InventarioConsumibles{" + "fechaVencimiento=" + fechaVencimiento + '}';
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
 }

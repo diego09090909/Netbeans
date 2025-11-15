@@ -27,12 +27,14 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jbtn_Empresa = new javax.swing.JButton();
         jbtn_Personal = new javax.swing.JButton();
         jbtn_Recetas = new javax.swing.JButton();
         jbtn_InventarioConsumibles = new javax.swing.JButton();
         jbtn_InventarioActivos = new javax.swing.JButton();
+        jbtn_InventarioActivos1 = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         jbtn_Salir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -42,6 +44,8 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -84,7 +88,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Recetas.setBackground(new java.awt.Color(123, 183, 209));
         jbtn_Recetas.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_Recetas.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_Recetas.setText("Recetas");
+        jbtn_Recetas.setText("Minutas");
         jbtn_Recetas.setBorder(null);
         jbtn_Recetas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -123,6 +127,20 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jbtn_InventarioActivos1.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_InventarioActivos1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jbtn_InventarioActivos1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_InventarioActivos1.setText("Inventario");
+        jbtn_InventarioActivos1.setBorder(null);
+        jbtn_InventarioActivos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbtn_InventarioActivos1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_InventarioActivos1MouseExited(evt);
+            }
+        });
+
         Logo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         Logo.setForeground(new java.awt.Color(29, 58, 109));
         Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -155,6 +173,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
             .addComponent(jbtn_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jbtn_InventarioActivos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +190,8 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jbtn_InventarioConsumibles, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jbtn_InventarioActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jbtn_InventarioActivos1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(123, 123, 123))
@@ -215,7 +236,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(29, 58, 109));
-        jLabel6.setText("<html> <div style='text-align:left;'> -Empresas registradas<br><br>-Personal por contrato y honorarios<br><br> -Activos y consumibles<br><br> -Recetas o registros asociados<br><br> Selecciona un módulo del menú izquierdo para comenzar a trabajar con la información.  Podrás <b>crear</b>, <b>editar</b> o <b>revisar</b> los datos fácilmente desde las opciones del sistema. </div> </html> "); // NOI18N
+        jLabel6.setText("<html> <div style='text-align:left;'> -Empresas registradas<br><br>-Personal por contrato y honorarios<br><br> -Activos y consumibles<br><br> -Minutas o registros asociados<br><br> Selecciona un módulo del menú izquierdo para comenzar a trabajar con la información.  Podrás <b>crear</b>, <b>editar</b> o <b>revisar</b> los datos fácilmente desde las opciones del sistema. </div> </html> "); // NOI18N
         jLabel6.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -290,14 +311,6 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Recetas.setBackground(new Color(74, 160, 196));
     }//GEN-LAST:event_jbtn_RecetasMouseEntered
 
-    private void jbtn_InventarioConsumiblesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseEntered
-        jbtn_InventarioConsumibles.setBackground(new Color(74, 160, 196));
-    }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseEntered
-
-    private void jbtn_InventarioActivosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseEntered
-        jbtn_InventarioActivos.setBackground(new Color(74, 160, 196));
-    }//GEN-LAST:event_jbtn_InventarioActivosMouseEntered
-
     private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbtn_SalirActionPerformed
@@ -314,13 +327,29 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Recetas.setBackground(new Color(123,183,209));
     }//GEN-LAST:event_jbtn_RecetasMouseExited
 
+    private void jbtn_InventarioActivos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_InventarioActivos1MouseEntered
+
+    private void jbtn_InventarioActivos1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_InventarioActivos1MouseExited
+
     private void jbtn_InventarioConsumiblesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseExited
         jbtn_InventarioConsumibles.setBackground(new Color(123,183,209));
     }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseExited
 
+    private void jbtn_InventarioConsumiblesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseEntered
+        jbtn_InventarioConsumibles.setBackground(new Color(74, 160, 196));
+    }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseEntered
+
     private void jbtn_InventarioActivosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseExited
         jbtn_InventarioActivos.setBackground(new Color(123,183,209));
     }//GEN-LAST:event_jbtn_InventarioActivosMouseExited
+
+    private void jbtn_InventarioActivosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseEntered
+        jbtn_InventarioActivos.setBackground(new Color(74, 160, 196));
+    }//GEN-LAST:event_jbtn_InventarioActivosMouseEntered
 
 //    /**
 //     * @param args the command line arguments
@@ -354,11 +383,13 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbtn_Empresa;
     private javax.swing.JButton jbtn_InventarioActivos;
+    private javax.swing.JButton jbtn_InventarioActivos1;
     private javax.swing.JButton jbtn_InventarioConsumibles;
     private javax.swing.JButton jbtn_Personal;
     private javax.swing.JButton jbtn_Recetas;
