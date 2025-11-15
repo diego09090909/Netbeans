@@ -1,6 +1,6 @@
 package vista;
 
-import Controlador.RegistroEmpresas;
+import CRUD.RegistroEmpresas;
 import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

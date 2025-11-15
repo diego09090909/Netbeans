@@ -1,4 +1,4 @@
-package Controlador;
+package CRUD;
 
 import bd.Conexion;
 import java.sql.Connection;

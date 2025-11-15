@@ -4,6 +4,7 @@ package bd;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -37,6 +38,10 @@ public class Conexion {
             JOptionPane.showMessageDialog(null,"Error de conexion..." + e.getMessage());
         }
         return connection;
+    }
+
+    public PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
