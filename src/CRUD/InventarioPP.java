@@ -115,7 +115,7 @@ public class InventarioPP {
         }
     }
 
-    public Inventario buscarPorRut(int idProducto) {
+    public Inventario buscarPorId(int idProducto) {
         Inventario inve = new Inventario();
 
         try {
