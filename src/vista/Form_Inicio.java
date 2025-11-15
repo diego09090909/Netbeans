@@ -27,8 +27,6 @@ public class Form_Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        imagen = new javax.swing.JLabel();
-        jtxt_nombre_empresa = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
         iniciarsesion = new javax.swing.JLabel();
@@ -52,26 +50,18 @@ public class Form_Inicio extends javax.swing.JFrame {
         bg.setForeground(new java.awt.Color(204, 204, 204));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cocinero.png"))); // NOI18N
-        imagen.setLabelFor(imagen);
-        bg.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 280, 130));
-
-        jtxt_nombre_empresa.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jtxt_nombre_empresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jtxt_nombre_empresa.setText("EMPRESA DE COCINA");
-        bg.add(jtxt_nombre_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 280, 30));
-
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/background-7452427_640.jpg"))); // NOI18N
-        bg.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 280, 510));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5080739.jpg"))); // NOI18N
+        bg.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 290, 510));
 
         Logo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guantes-de-cocina (1).png"))); // NOI18N
-        Logo.setText("LOGO");
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cocinero.png"))); // NOI18N
+        Logo.setText("BIFUD");
         bg.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 70));
 
+        iniciarsesion.setBackground(new java.awt.Color(115, 196, 173));
         iniciarsesion.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        iniciarsesion.setForeground(new java.awt.Color(115, 196, 173));
         iniciarsesion.setText("INICIAR SESION");
         bg.add(iniciarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 190, 40));
 
@@ -89,6 +79,7 @@ public class Form_Inicio extends javax.swing.JFrame {
 
         exitbtn.setBackground(new java.awt.Color(255, 255, 255));
 
+        exit_txt.setBackground(new java.awt.Color(255, 255, 255));
         exit_txt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         exit_txt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit_txt.setText("X");
@@ -156,7 +147,7 @@ public class Form_Inicio extends javax.swing.JFrame {
         });
         bg.add(jtxt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 390, 30));
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(204, 215, 198));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 360, 10));
 
         contraseña.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -173,10 +164,11 @@ public class Form_Inicio extends javax.swing.JFrame {
         });
         bg.add(jtxt_paswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 390, 30));
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setBackground(new java.awt.Color(103, 197, 177));
+        jSeparator2.setForeground(new java.awt.Color(204, 215, 198));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 360, 20));
 
-        jbtn_Entrar.setBackground(new java.awt.Color(0, 134, 190));
+        jbtn_Entrar.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_Entrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtn_Entrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Entrar.setText("Entrar");
@@ -306,12 +298,10 @@ public class Form_Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel exit_txt;
     private javax.swing.JPanel exitbtn;
     private javax.swing.JPanel head;
-    private javax.swing.JLabel imagen;
     private javax.swing.JLabel iniciarsesion;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtn_Entrar;
-    private javax.swing.JLabel jtxt_nombre_empresa;
     private javax.swing.JPasswordField jtxt_paswd;
     private javax.swing.JTextField jtxt_user;
     private javax.swing.JLabel usuario;

@@ -56,7 +56,6 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jpan_InfoGeneral = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -84,31 +83,26 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         jtxt_mesTermino = new javax.swing.JTextField();
         jtxt_agnoTerrmino = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_datos = new javax.swing.JTable();
         jpan_Opciones = new javax.swing.JPanel();
-        jpan_Crud = new javax.swing.JPanel();
         jtbtn_agregar = new javax.swing.JButton();
         jbtn_Actualizar = new javax.swing.JButton();
         jbtn_eliminar = new javax.swing.JButton();
-        jbtn_Buscar = new javax.swing.JButton();
         jbtn_listar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jbtn_Buscar = new javax.swing.JButton();
         jbtn_Limpiar = new javax.swing.JButton();
-        jbtn_Salir = new javax.swing.JButton();
         jbtn_Volver = new javax.swing.JButton();
+        jbtn_Salir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(214, 228, 245));
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setName(""); // NOI18N
-
-        jpan_InfoGeneral.setBackground(new java.awt.Color(123, 183, 209));
-        jpan_InfoGeneral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpan_InfoGeneral.setBackground(new java.awt.Color(204, 215, 198));
         jpan_InfoGeneral.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -157,6 +151,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
+        jchk_indefinido.setBackground(new java.awt.Color(204, 215, 198));
         jchk_indefinido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jchk_indefinido.setForeground(new java.awt.Color(255, 255, 255));
         jchk_indefinido.setText("Contrato indefinido");
@@ -249,105 +244,73 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Información general");
 
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Registros");
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Administración de Empresas");
-
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
         javax.swing.GroupLayout jpan_InfoGeneralLayout = new javax.swing.GroupLayout(jpan_InfoGeneral);
         jpan_InfoGeneral.setLayout(jpan_InfoGeneralLayout);
         jpan_InfoGeneralLayout.setHorizontalGroup(
             jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(69, 69, 69)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(45, 45, 45)
-                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtxt_Nombre)
-                                    .addComponent(jtxt_Rut, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jchk_indefinido)
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(42, 42, 42)
-                                .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(45, 45, 45)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_agnoTerrmino))
-                            .addComponent(jtxt_cantEmpleados)
-                            .addComponent(jtxt_direccion)
-                            .addComponent(jtxt_cantCasinos, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jtxt_Nombre)
+                            .addComponent(jtxt_Rut, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jchk_indefinido)
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addGap(421, 421, 421)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(42, 42, 42)
+                        .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2))
-                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addGap(395, 395, 395)
-                                .addComponent(jLabel13))
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel15)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxt_agnoTerrmino))
+                    .addComponent(jtxt_cantEmpleados)
+                    .addComponent(jtxt_direccion)
+                    .addComponent(jtxt_cantCasinos, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57))
+            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpan_InfoGeneralLayout.setVerticalGroup(
             jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -387,13 +350,27 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jtxt_cantCasinos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(14, 14, 14)
-                .addComponent(jLabel16)
-                .addGap(154, 154, 154))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jtbl_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -403,14 +380,12 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
                 "Rut", "Nombre", "Fono Fijo", "Dirección", "Cant. Empleados", "Cant. Casinos", "Contrato indefinido", "Fecha inicio", "Fecha termino"
             }
         ));
+        jtbl_datos.setMaximumSize(new java.awt.Dimension(1180, 80));
         jScrollPane1.setViewportView(jtbl_datos);
 
-        jpan_Opciones.setBackground(new java.awt.Color(123, 183, 209));
-        jpan_Opciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jpan_Opciones.setBackground(new java.awt.Color(248, 246, 231));
 
-        jpan_Crud.setBackground(new java.awt.Color(123, 183, 209));
-        jpan_Crud.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
+        jtbtn_agregar.setBackground(new java.awt.Color(204, 215, 198));
         jtbtn_agregar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtbtn_agregar.setText("Agregar");
         jtbtn_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -419,6 +394,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
+        jbtn_Actualizar.setBackground(new java.awt.Color(204, 215, 198));
         jbtn_Actualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtn_Actualizar.setText("Actualizar");
         jbtn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -427,6 +403,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
+        jbtn_eliminar.setBackground(new java.awt.Color(204, 215, 198));
         jbtn_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtn_eliminar.setText("Eliminar");
         jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -435,14 +412,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Buscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jbtn_Buscar.setText("Buscar");
-        jbtn_Buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_BuscarActionPerformed(evt);
-            }
-        });
-
+        jbtn_listar.setBackground(new java.awt.Color(204, 215, 198));
         jbtn_listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtn_listar.setText("Listar");
         jbtn_listar.addActionListener(new java.awt.event.ActionListener() {
@@ -451,39 +421,16 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jpan_CrudLayout = new javax.swing.GroupLayout(jpan_Crud);
-        jpan_Crud.setLayout(jpan_CrudLayout);
-        jpan_CrudLayout.setHorizontalGroup(
-            jpan_CrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpan_CrudLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jtbtn_agregar)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_Actualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jbtn_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbtn_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-        );
-        jpan_CrudLayout.setVerticalGroup(
-            jpan_CrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpan_CrudLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jpan_CrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbtn_agregar)
-                    .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_Buscar)
-                    .addComponent(jbtn_listar))
-                .addGap(28, 28, 28))
-        );
+        jbtn_Buscar.setBackground(new java.awt.Color(204, 215, 198));
+        jbtn_Buscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtn_Buscar.setText("Buscar");
+        jbtn_Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_BuscarActionPerformed(evt);
+            }
+        });
 
-        jPanel2.setBackground(new java.awt.Color(123, 183, 209));
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
+        jbtn_Limpiar.setBackground(new java.awt.Color(204, 215, 198));
         jbtn_Limpiar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtn_Limpiar.setText("Limpiar");
         jbtn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -492,14 +439,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Salir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jbtn_Salir.setText("Salir");
-        jbtn_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_SalirActionPerformed(evt);
-            }
-        });
-
+        jbtn_Volver.setBackground(new java.awt.Color(204, 215, 198));
         jbtn_Volver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbtn_Volver.setText("Volver");
         jbtn_Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -508,81 +448,131 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jbtn_Limpiar)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_Volver)
-                    .addComponent(jbtn_Limpiar)
-                    .addComponent(jbtn_Salir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jbtn_Salir.setBackground(new java.awt.Color(204, 215, 198));
+        jbtn_Salir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtn_Salir.setText("Salir");
+        jbtn_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpan_OpcionesLayout = new javax.swing.GroupLayout(jpan_Opciones);
         jpan_Opciones.setLayout(jpan_OpcionesLayout);
         jpan_OpcionesLayout.setHorizontalGroup(
             jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_OpcionesLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jpan_Crud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31786, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtn_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_listar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtbtn_agregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jpan_OpcionesLayout.setVerticalGroup(
             jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_OpcionesLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpan_Crud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jtbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_Buscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.setBackground(new java.awt.Color(248, 246, 231));
+
+        jLabel14.setBackground(new java.awt.Color(204, 215, 198));
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(115, 196, 173));
+        jLabel14.setText("Administracion de Empresas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jpan_Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(219, 219, 219)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 31939, Short.MAX_VALUE)
-                .addComponent(jpan_Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cocinero.png"))); // NOI18N
+        jLabel13.setText("logo");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel13)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpan_Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
+                            .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE))
+                        .addGap(0, 0, 0))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpan_Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -599,6 +589,199 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     private void jtxt_mesTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_mesTerminoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_mesTerminoActionPerformed
+
+    private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
+
+        //ehace que si se da click en contrato indefinido fecha termino queda bloqueado
+        boolean contratoIndefinido = jchk_indefinido.isSelected();
+
+        this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
+        this.jtxt_mesTermino.setEnabled(!contratoIndefinido);
+        this.jtxt_agnoTerrmino.setEnabled(!contratoIndefinido);
+
+        if (contratoIndefinido) {
+            this.jtxt_diaTermino.setText("");
+            this.jtxt_mesTermino.setText("");
+            this.jtxt_agnoTerrmino.setText("");
+        }
+    }//GEN-LAST:event_jchk_indefinidoActionPerformed
+
+    private void jtxt_RutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_RutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_RutActionPerformed
+
+    private void jtxt_RutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_RutFocusLost
+        //muestra el ejemplo en gris
+        if (jtxt_Rut.getText().trim().isEmpty()) {
+            jtxt_Rut.setText("Ej: 12345678-9");
+            jtxt_Rut.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_jtxt_RutFocusLost
+
+    private void jtxt_RutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_RutMousePressed
+        //cuando el usuario aprieta rut se borra el ejemplo y se puede escribir en negro
+        if (jtxt_Rut.getText().equals("Ej: 12345678-9")) {
+            jtxt_Rut.setText("");
+            jtxt_Rut.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jtxt_RutMousePressed
+
+    private void jtxt_DiaInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioFocusLost
+        if (jtxt_DiaInicio.getText().trim().isEmpty()) {
+            jtxt_DiaInicio.setText("01");
+            jtxt_DiaInicio.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_jtxt_DiaInicioFocusLost
+
+    private void jtxt_DiaInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioMousePressed
+        if (jtxt_DiaInicio.getText().equals("01")) {
+            jtxt_DiaInicio.setText("");
+            jtxt_DiaInicio.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jtxt_DiaInicioMousePressed
+
+    private void jtxt_mesInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mesInicioFocusLost
+        if (jtxt_mesInicio.getText().trim().isEmpty()) {
+            jtxt_mesInicio.setText("02");
+            jtxt_mesInicio.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_jtxt_mesInicioFocusLost
+
+    private void jtxt_mesInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_mesInicioMousePressed
+        if (jtxt_mesInicio.getText().equals("02")) {
+            jtxt_mesInicio.setText("");
+            jtxt_mesInicio.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jtxt_mesInicioMousePressed
+
+    private void jtxt_agnoInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioFocusLost
+        if (jtxt_agnoInicio.getText().trim().isEmpty()) {
+            jtxt_agnoInicio.setText("3333");
+            jtxt_agnoInicio.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_jtxt_agnoInicioFocusLost
+
+    private void jtxt_agnoInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioMousePressed
+        if (jtxt_agnoInicio.getText().equals("3333")) {
+            jtxt_agnoInicio.setText("");
+            jtxt_agnoInicio.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jtxt_agnoInicioMousePressed
+
+    private void jtxt_DiaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_DiaInicioActionPerformed
+
+    private void jtxt_diaTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_diaTerminoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_diaTerminoActionPerformed
+
+    private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jbtn_SalirActionPerformed
+
+    private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
+        Form_MenuPrincipal menu = new Form_MenuPrincipal();
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jbtn_VolverActionPerformed
+
+    private void jbtn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_LimpiarActionPerformed
+        this.limpiar();
+    }//GEN-LAST:event_jbtn_LimpiarActionPerformed
+
+    private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
+        String rut = this.jtxt_Rut.getText();
+        RegistroEmpresas reg = new RegistroEmpresas();
+        Empresa empresa = reg.buscarPorRut(rut);
+
+        if (empresa != null) {
+            //este bloquea para que el usuario no edite
+            this.jtxt_Rut.setText(empresa.getRut());
+            this.jtxt_Rut.setEnabled(false);
+
+            this.jtxt_Nombre.setText(empresa.getNombre());
+            this.jtxt_fonoFijo.setText(empresa.getFonoFijo());
+            this.jtxt_direccion.setText(empresa.getDireccion());
+            this.jtxt_cantEmpleados.setText(String.valueOf(empresa.getCantEmpleados()));
+            this.jtxt_cantCasinos.setText(String.valueOf(empresa.getCantCasino()));
+
+            // Fecha de inicio, tuve que pedir al gpt un calendar para que uniera todo los textos y se dara forma aplica para inicio y termino
+            Date fechaInicio = empresa.getFechaInicio();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fechaInicio);
+            this.jtxt_DiaInicio.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+            this.jtxt_mesInicio.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+            this.jtxt_agnoInicio.setText(String.valueOf(cal.get(Calendar.YEAR)));
+
+            // Contrato indefinido
+            this.jchk_indefinido.setSelected(empresa.isContratoIndefinido());
+
+            // Fecha de término si es que aplica
+            if (!empresa.isContratoIndefinido() && empresa.getFechaTermino() != null) {
+                cal.setTime(empresa.getFechaTermino());
+                this.jtxt_diaTermino.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+                this.jtxt_mesTermino.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+                this.jtxt_agnoTerrmino.setText(String.valueOf(cal.get(Calendar.YEAR)));
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Empresa no encontrada", "Buscar", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jbtn_BuscarActionPerformed
+
+    private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
+
+        RegistroEmpresas reg = new RegistroEmpresas();
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
+        modelo.setRowCount(0); // Limpiar tabla
+
+        List<Empresa> lista = reg.listarTodos(); // Obtener todas las empresas
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        for (Empresa emp : lista) {
+            modelo.addRow(new Object[]{
+                emp.getRut(),
+                emp.getNombre(),
+                emp.getFonoFijo(),
+                emp.getDireccion(),
+                emp.getCantEmpleados(),
+                emp.getCantCasino(),
+                emp.isContratoIndefinido() ? "Indefinido" : "Definido",
+                emp.getFechaInicio() != null ? formato.format(emp.getFechaInicio()) : "",
+                emp.getFechaTermino() != null ? formato.format(emp.getFechaTermino()) : ""
+            });
+        }
+
+    }//GEN-LAST:event_jbtn_listarActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+        //obtiene el rut ingresado por el usuario
+        String rut = jtxt_Rut.getText().trim();
+
+        //inicializar el registro para llamar el metodo
+        RegistroEmpresas reg = new RegistroEmpresas();
+
+        //devuelve el error si se aprieta borra y no hay rut escrito
+        if (rut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un RUT para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //mensaje que pregunta si quieres, el 1 es mas que nada un indicador tipo de mensaje
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar?", "Aviso", 1);
+
+        //si o no para borrar y los error
+        if (opcion == JOptionPane.YES_OPTION) {
+            boolean eliminar = reg.eliminar(rut);
+            JOptionPane.showMessageDialog(this, "Empresa Eliminada", "Eliminado", 1);
+        } else {
+            JOptionPane.showMessageDialog(this, "Empresa NO Eliminada", "Eliminada", 2);
+        }
+
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
 
     private void jbtn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ActualizarActionPerformed
 
@@ -646,7 +829,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         } else {
             fechaTermino = null;
         }
-        //CREA EL NUEVO LIBROEMPRESA y se implementa el actualizar, aparte de los mensajes de error o de aprobacion 
+        //CREA EL NUEVO LIBROEMPRESA y se implementa el actualizar, aparte de los mensajes de error o de aprobacion
         Empresa empresa = new Empresa(rut, nombre, fonoFijo, cantCasino, cantEmpleados, direccion, contratoIndefinido, fechaInicio, fechaTermino);
         RegistroEmpresas reg = new RegistroEmpresas();
 
@@ -655,62 +838,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No se pudo actualizar la empresa", "Actualizar", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_jbtn_ActualizarActionPerformed
-
-    private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
-        String rut = this.jtxt_Rut.getText();
-        RegistroEmpresas reg = new RegistroEmpresas();
-        Empresa empresa = reg.buscarPorRut(rut);
-
-        if (empresa != null) {
-            //este bloquea para que el usuario no edite
-            this.jtxt_Rut.setText(empresa.getRut());
-            this.jtxt_Rut.setEnabled(false);
-            
-            this.jtxt_Nombre.setText(empresa.getNombre());
-            this.jtxt_fonoFijo.setText(empresa.getFonoFijo());
-            this.jtxt_direccion.setText(empresa.getDireccion());
-            this.jtxt_cantEmpleados.setText(String.valueOf(empresa.getCantEmpleados()));
-            this.jtxt_cantCasinos.setText(String.valueOf(empresa.getCantCasino()));
-
-            // Fecha de inicio, tuve que pedir al gpt un calendar para que uniera todo los textos y se dara forma aplica para inicio y termino
-            Date fechaInicio = empresa.getFechaInicio();
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(fechaInicio);
-            this.jtxt_DiaInicio.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-            this.jtxt_mesInicio.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
-            this.jtxt_agnoInicio.setText(String.valueOf(cal.get(Calendar.YEAR)));
-
-            // Contrato indefinido
-            this.jchk_indefinido.setSelected(empresa.isContratoIndefinido());
-
-            // Fecha de término si es que aplica 
-            if (!empresa.isContratoIndefinido() && empresa.getFechaTermino() != null) {
-                cal.setTime(empresa.getFechaTermino());
-                this.jtxt_diaTermino.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-                this.jtxt_mesTermino.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
-                this.jtxt_agnoTerrmino.setText(String.valueOf(cal.get(Calendar.YEAR)));
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Empresa no encontrada", "Buscar", JOptionPane.WARNING_MESSAGE);
-        }
-
-    }//GEN-LAST:event_jbtn_BuscarActionPerformed
-
-    private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
-        Form_MenuPrincipal menu = new Form_MenuPrincipal();
-        menu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jbtn_VolverActionPerformed
-
-    private void jbtn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_LimpiarActionPerformed
-        this.limpiar();
-    }//GEN-LAST:event_jbtn_LimpiarActionPerformed
-
-    private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jbtn_SalirActionPerformed
 
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
 
@@ -798,150 +926,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, " No se pudo agregar la empresa", "Ingreso Empresa", JOptionPane.ERROR_MESSAGE);
         }
 
-
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
-
-    private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
-
-        //ehace que si se da click en contrato indefinido fecha termino queda bloqueado
-        boolean contratoIndefinido = jchk_indefinido.isSelected();
-
-        this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
-        this.jtxt_mesTermino.setEnabled(!contratoIndefinido);
-        this.jtxt_agnoTerrmino.setEnabled(!contratoIndefinido);
-
-        if (contratoIndefinido) {
-            this.jtxt_diaTermino.setText("");
-            this.jtxt_mesTermino.setText("");
-            this.jtxt_agnoTerrmino.setText("");
-        }
-    }//GEN-LAST:event_jchk_indefinidoActionPerformed
-
-    private void jtxt_RutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_RutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_RutActionPerformed
-
-    private void jtxt_RutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_RutFocusLost
-        //muestra el ejemplo en gris
-        if (jtxt_Rut.getText().trim().isEmpty()) {
-            jtxt_Rut.setText("Ej: 12345678-9");
-            jtxt_Rut.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_jtxt_RutFocusLost
-
-    private void jtxt_RutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_RutMousePressed
-        //cuando el usuario aprieta rut se borra el ejemplo y se puede escribir en negro
-        if (jtxt_Rut.getText().equals("Ej: 12345678-9")) {
-            jtxt_Rut.setText("");
-            jtxt_Rut.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_RutMousePressed
-
-    private void jtxt_DiaInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioFocusLost
-        if (jtxt_DiaInicio.getText().trim().isEmpty()) {
-            jtxt_DiaInicio.setText("01");
-            jtxt_DiaInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_DiaInicioFocusLost
-
-    private void jtxt_DiaInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioMousePressed
-        if (jtxt_DiaInicio.getText().equals("01")) {
-            jtxt_DiaInicio.setText("");
-            jtxt_DiaInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_DiaInicioMousePressed
-
-    private void jtxt_mesInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mesInicioFocusLost
-        if (jtxt_mesInicio.getText().trim().isEmpty()) {
-            jtxt_mesInicio.setText("02");
-            jtxt_mesInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_mesInicioFocusLost
-
-    private void jtxt_mesInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_mesInicioMousePressed
-        if (jtxt_mesInicio.getText().equals("02")) {
-            jtxt_mesInicio.setText("");
-            jtxt_mesInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_mesInicioMousePressed
-
-    private void jtxt_agnoInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioFocusLost
-        if (jtxt_agnoInicio.getText().trim().isEmpty()) {
-            jtxt_agnoInicio.setText("3333");
-            jtxt_agnoInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_agnoInicioFocusLost
-
-    private void jtxt_agnoInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioMousePressed
-        if (jtxt_agnoInicio.getText().equals("3333")) {
-            jtxt_agnoInicio.setText("");
-            jtxt_agnoInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_agnoInicioMousePressed
-
-    private void jtxt_DiaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_DiaInicioActionPerformed
-
-    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
-        //obtiene el rut ingresado por el usuario
-        String rut = jtxt_Rut.getText().trim();
-
-        //inicializar el registro para llamar el metodo
-        RegistroEmpresas reg = new RegistroEmpresas();
-
-        //devuelve el error si se aprieta borra y no hay rut escrito 
-        if (rut.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debes ingresar un RUT para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        //mensaje que pregunta si quieres, el 1 es mas que nada un indicador tipo de mensaje
-        int opcion = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar?", "Aviso", 1);
-
-        //si o no para borrar y los error
-        if (opcion == JOptionPane.YES_OPTION) {
-            boolean eliminar = reg.eliminar(rut);
-            JOptionPane.showMessageDialog(this, "Empresa Eliminada", "Eliminado", 1);
-        } else {
-            JOptionPane.showMessageDialog(this, "Empresa NO Eliminada", "Eliminada", 2);
-        }
-
-
-    }//GEN-LAST:event_jbtn_eliminarActionPerformed
-
-    private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
-
-        RegistroEmpresas reg = new RegistroEmpresas();
-        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
-        modelo.setRowCount(0); // Limpiar tabla
-
-        List<Empresa> lista = reg.listarTodos(); // Obtener todas las empresas
-
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-        for (Empresa emp : lista) {
-            modelo.addRow(new Object[]{
-                emp.getRut(),
-                emp.getNombre(),
-                emp.getFonoFijo(),
-                emp.getDireccion(),
-                emp.getCantEmpleados(),
-                emp.getCantCasino(),
-                emp.isContratoIndefinido() ? "Indefinido" : "Definido",
-                emp.getFechaInicio() != null ? formato.format(emp.getFechaInicio()) : "",
-                emp.getFechaTermino() != null ? formato.format(emp.getFechaTermino()) : ""
-            });
-        }
-
-
-    }//GEN-LAST:event_jbtn_listarActionPerformed
-
-    private void jtxt_diaTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_diaTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_diaTerminoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -974,8 +959,8 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -987,7 +972,6 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtn_Actualizar;
     private javax.swing.JButton jbtn_Buscar;
     private javax.swing.JButton jbtn_Limpiar;
@@ -996,7 +980,6 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JButton jbtn_listar;
     private javax.swing.JRadioButton jchk_indefinido;
-    private javax.swing.JPanel jpan_Crud;
     private javax.swing.JPanel jpan_InfoGeneral;
     private javax.swing.JPanel jpan_Opciones;
     private javax.swing.JTable jtbl_datos;

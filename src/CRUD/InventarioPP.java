@@ -1,4 +1,3 @@
-
 package CRUD;
 
 import bd.Conexion;
@@ -9,12 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author k-ort
  */
-
 public class InventarioPP {
 
     Connection conn;
@@ -22,20 +19,21 @@ public class InventarioPP {
     ResultSet rs;
 
     public boolean insertar(Inventario inv) {
-        String sql = "INSERT INTO inventario (codigo, nombre, descripcion, tipo, stock_actual, stock_minimo, ubicacion, estado) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO inventario (id_producto, codigo, nombre, descripcion, tipo, stock_actual, stock_minimo, ubicacion, estado) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Conexion conn = new Conexion();
             ps = conn.prepareStatement(sql);
-            ps.setString(1, inv.getCodigo());
-            ps.setString(2, inv.getNombre());
-            ps.setString(3, inv.getDescripcion());
-            ps.setString(4, inv.getTipo());
-            ps.setInt(5, inv.getStockActual());
-            ps.setInt(6, inv.getStockMinimo());
-            ps.setString(7, inv.getUbicacion());
-            ps.setString(8, inv.getEstado());
+            ps.setInt(1, inv.getIdProducto());
+            ps.setString(2, inv.getCodigo());
+            ps.setString(3, inv.getNombre());
+            ps.setString(4, inv.getDescripcion());
+            ps.setString(5, inv.getTipo());
+            ps.setInt(6, inv.getStockActual());
+            ps.setInt(7, inv.getStockMinimo());
+            ps.setString(8, inv.getUbicacion());
+            ps.setString(9, inv.getEstado());
 
             return ps.executeUpdate() > 0;
 
@@ -55,7 +53,7 @@ public class InventarioPP {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Inventario inv =new Inventario(
+                Inventario inv = new Inventario(
                         rs.getInt("id_producto"),
                         rs.getString("codigo"),
                         rs.getString("nombre"),
@@ -65,7 +63,8 @@ public class InventarioPP {
                         rs.getInt("stock_minimo"),
                         rs.getString("ubicacion"),
                         rs.getString("estado")
-                ) {};
+                ) {
+                };
                 lista.add(inv);
             }
 
@@ -115,5 +114,42 @@ public class InventarioPP {
             return false;
         }
     }
-}
 
+    public Inventario buscarPorRut(int idProducto) {
+        Inventario inve = new Inventario();
+
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            String query = "SELECT * FROM inventario WHERE id_producto = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, idProducto);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                inve.setCodigo(rs.getString("codigo"));
+                inve.setNombre(rs.getNString("nombre"));
+                inve.setDescripcion(rs.getString("descripcion"));
+                inve.setTipo(rs.getString("tipo"));
+                inve.setStockActual(rs.getInt("stock_actual"));
+                inve.setStockMinimo(rs.getInt("stock_minimo"));
+                inve.setUbicacion(rs.getString("ubicacion"));
+                inve.setEstado(rs.getString("estado"));
+
+            }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al listar el inventario: " + e.getMessage());
+
+        }
+        return inve;
+    }
+
+}

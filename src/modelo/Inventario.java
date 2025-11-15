@@ -1,11 +1,10 @@
-
 package modelo;
 
 /**
  *
  * @author k-ort
  */
-public abstract class Inventario {
+public class Inventario {
 
     protected int idProducto;
     protected String codigo;
@@ -18,11 +17,12 @@ public abstract class Inventario {
     protected String estado; // DISPONIBLE, AGOTADO, INACTIVO
 
     // Constructor vacío
-    public Inventario() {}
+    public Inventario() {
+    }
 
     // Constructor
     public Inventario(int idProducto, String codigo, String nombre, String descripcion, String tipo,
-                      int stockActual, int stockMinimo, String ubicacion, String estado) {
+            int stockActual, int stockMinimo, String ubicacion, String estado) {
         this.idProducto = idProducto;
         this.codigo = codigo;
         this.nombre = nombre;
@@ -105,10 +105,5 @@ public abstract class Inventario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
 
-    
 }
-
-
