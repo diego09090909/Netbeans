@@ -52,18 +52,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
         jtxt_fonoFijo = new javax.swing.JTextField();
         jtxt_cantEmpleados = new javax.swing.JTextField();
         jtxt_direccion = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jtxt_DiaInicio = new javax.swing.JTextField();
-        jtxt_mesInicio = new javax.swing.JTextField();
-        jtxt_agnoInicio = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jtxt_diaTermino = new javax.swing.JTextField();
-        jtxt_mesTermino = new javax.swing.JTextField();
-        jtxt_agnoTerrmino = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jtxt_tipoHorario = new javax.swing.JTextField();
@@ -243,85 +231,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Fecha inicio: ");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("/");
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("/");
-
-        jtxt_DiaInicio.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtxt_DiaInicioFocusLost(evt);
-            }
-        });
-        jtxt_DiaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jtxt_DiaInicioMousePressed(evt);
-            }
-        });
-        jtxt_DiaInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_DiaInicioActionPerformed(evt);
-            }
-        });
-
-        jtxt_mesInicio.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtxt_mesInicioFocusLost(evt);
-            }
-        });
-        jtxt_mesInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jtxt_mesInicioMousePressed(evt);
-            }
-        });
-        jtxt_mesInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_mesInicioActionPerformed(evt);
-            }
-        });
-
-        jtxt_agnoInicio.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtxt_agnoInicioFocusLost(evt);
-            }
-        });
-        jtxt_agnoInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jtxt_agnoInicioMousePressed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Fecha termino:");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("/");
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("/");
-
-        jtxt_diaTermino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_diaTerminoActionPerformed(evt);
-            }
-        });
-
-        jtxt_mesTermino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_mesTerminoActionPerformed(evt);
-            }
-        });
-
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Información general");
@@ -337,18 +246,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
@@ -368,21 +265,10 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel6))
+                        .addGap(54, 54, 54)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
-                            .addComponent(jtxt_cantEmpleados)
+                            .addComponent(jtxt_cantEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(jtxt_direccion)))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGap(117, 117, 117)
@@ -413,21 +299,7 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -440,7 +312,7 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jtxt_tipoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -474,7 +346,7 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -512,67 +384,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
 
         //Aca ingresamos las variables que se deben guardar, copien el formato chiquillos
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
-
-    private void jtxt_mesTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_mesTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_mesTerminoActionPerformed
-
-    private void jtxt_diaTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_diaTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_diaTerminoActionPerformed
-
-    private void jtxt_agnoInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioMousePressed
-        if (jtxt_agnoInicio.getText().equals("3333")) {
-            jtxt_agnoInicio.setText("");
-            jtxt_agnoInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_agnoInicioMousePressed
-
-    private void jtxt_agnoInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_agnoInicioFocusLost
-        if (jtxt_agnoInicio.getText().trim().isEmpty()) {
-            jtxt_agnoInicio.setText("3333");
-            jtxt_agnoInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_agnoInicioFocusLost
-
-    private void jtxt_mesInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_mesInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_mesInicioActionPerformed
-
-    private void jtxt_mesInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_mesInicioMousePressed
-        if (jtxt_mesInicio.getText().equals("02")) {
-            jtxt_mesInicio.setText("");
-            jtxt_mesInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_mesInicioMousePressed
-
-    private void jtxt_mesInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_mesInicioFocusLost
-        if (jtxt_mesInicio.getText().trim().isEmpty()) {
-            jtxt_mesInicio.setText("02");
-            jtxt_mesInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_mesInicioFocusLost
-
-    private void jtxt_DiaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_DiaInicioActionPerformed
-
-    private void jtxt_DiaInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioMousePressed
-        if (jtxt_DiaInicio.getText().equals("01")) {
-            jtxt_DiaInicio.setText("");
-            jtxt_DiaInicio.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jtxt_DiaInicioMousePressed
-
-    private void jtxt_DiaInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioFocusLost
-        if (jtxt_DiaInicio.getText().trim().isEmpty()) {
-            jtxt_DiaInicio.setText("01");
-            jtxt_DiaInicio.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jtxt_DiaInicioFocusLost
 
     private void jtxt_cantEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cantEmpleadosActionPerformed
         // TODO add your handling code here:
@@ -625,9 +436,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -636,9 +444,6 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbtn_Actualizar;
@@ -649,17 +454,11 @@ public class RegistroDePersonalHonorario extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_listar;
     private javax.swing.JPanel jpan_InfoGeneral;
     private javax.swing.JButton jtbtn_agregar;
-    private javax.swing.JTextField jtxt_DiaInicio;
     private javax.swing.JTextField jtxt_Nombre;
     private javax.swing.JTextField jtxt_Rut;
-    private javax.swing.JTextField jtxt_agnoInicio;
-    private javax.swing.JTextField jtxt_agnoTerrmino;
     private javax.swing.JTextField jtxt_cantEmpleados;
-    private javax.swing.JTextField jtxt_diaTermino;
     private javax.swing.JTextField jtxt_direccion;
     private javax.swing.JTextField jtxt_fonoFijo;
-    private javax.swing.JTextField jtxt_mesInicio;
-    private javax.swing.JTextField jtxt_mesTermino;
     private javax.swing.JTextField jtxt_tipoHorario;
     // End of variables declaration//GEN-END:variables
 }

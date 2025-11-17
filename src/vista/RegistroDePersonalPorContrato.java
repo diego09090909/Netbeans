@@ -54,7 +54,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jtxt_fonoFijo = new javax.swing.JTextField();
         jtxt_cargo = new javax.swing.JTextField();
         jtxt_direccion = new javax.swing.JTextField();
-        jchk_indefinido = new javax.swing.JRadioButton();
+        jchk_Honorario = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -70,6 +70,9 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jtxt_tipoHorario = new javax.swing.JTextField();
+        jchk_indefinido1 = new javax.swing.JRadioButton();
+        jLabel17 = new javax.swing.JLabel();
+        jtxt_sueldo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,8 +92,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(270, 270, 270)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addComponent(jLabel14)
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +201,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addComponent(jbtn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
 
         jpan_InfoGeneral.setBackground(new java.awt.Color(204, 215, 198));
@@ -252,13 +255,13 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
             }
         });
 
-        jchk_indefinido.setBackground(new java.awt.Color(204, 215, 198));
-        jchk_indefinido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jchk_indefinido.setForeground(new java.awt.Color(255, 255, 255));
-        jchk_indefinido.setText("Contrato indefinido");
-        jchk_indefinido.addActionListener(new java.awt.event.ActionListener() {
+        jchk_Honorario.setBackground(new java.awt.Color(204, 215, 198));
+        jchk_Honorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jchk_Honorario.setForeground(new java.awt.Color(255, 255, 255));
+        jchk_Honorario.setText("Tabajador por Honorario");
+        jchk_Honorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jchk_indefinidoActionPerformed(evt);
+                jchk_HonorarioActionPerformed(evt);
             }
         });
 
@@ -349,6 +352,20 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Tipo de Horario:");
 
+        jchk_indefinido1.setBackground(new java.awt.Color(204, 215, 198));
+        jchk_indefinido1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jchk_indefinido1.setForeground(new java.awt.Color(255, 255, 255));
+        jchk_indefinido1.setText("Contrato indefinido");
+        jchk_indefinido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jchk_indefinido1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Sueldo:");
+
         javax.swing.GroupLayout jpan_InfoGeneralLayout = new javax.swing.GroupLayout(jpan_InfoGeneral);
         jpan_InfoGeneral.setLayout(jpan_InfoGeneralLayout);
         jpan_InfoGeneralLayout.setHorizontalGroup(
@@ -357,62 +374,75 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel15))
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addComponent(jchk_indefinido1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jchk_Honorario)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(45, 45, 45)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jtxt_DiaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(45, 45, 45)
+                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtxt_Nombre)
+                                    .addComponent(jtxt_Rut, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(42, 42, 42)
+                                .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxt_Nombre)
-                            .addComponent(jtxt_Rut, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jchk_indefinido)
-                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(42, 42, 42)
-                        .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)))
-                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
-                    .addComponent(jtxt_cargo)
-                    .addComponent(jtxt_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(jtxt_tipoHorario))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel15)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
+                                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel8))
+                                        .addGap(33, 33, 33))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                        .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                                    .addComponent(jtxt_cargo)
+                                    .addComponent(jtxt_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                                    .addComponent(jtxt_tipoHorario)))
+                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(86, 86, 86)
+                                .addComponent(jtxt_sueldo)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jpan_InfoGeneralLayout.setVerticalGroup(
             jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,9 +476,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jchk_indefinido))
+                            .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -460,8 +488,16 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jtxt_tipoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                            .addComponent(jtxt_tipoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(jtxt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jchk_Honorario)
+                    .addComponent(jchk_indefinido1))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -496,8 +532,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 389, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -559,10 +595,10 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_cargoActionPerformed
 
-    private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
+    private void jchk_HonorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_HonorarioActionPerformed
 
         //ehace que si se da click en contrato indefinido fecha termino queda bloqueado
-        boolean contratoIndefinido = jchk_indefinido.isSelected();
+        boolean contratoIndefinido = jchk_Honorario.isSelected();
 
         this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
         this.jtxt_mesTermino.setEnabled(!contratoIndefinido);
@@ -573,7 +609,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
             this.jtxt_mesTermino.setText("");
             this.jtxt_agnoTerrmino.setText("");
         }
-    }//GEN-LAST:event_jchk_indefinidoActionPerformed
+    }//GEN-LAST:event_jchk_HonorarioActionPerformed
 
     private void jtxt_DiaInicioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_DiaInicioFocusLost
         if (jtxt_DiaInicio.getText().trim().isEmpty()) {
@@ -640,6 +676,10 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_direccionActionPerformed
 
+    private void jchk_indefinido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jchk_indefinido1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -674,6 +714,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -689,7 +730,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_Volver;
     private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JButton jbtn_listar;
-    private javax.swing.JRadioButton jchk_indefinido;
+    private javax.swing.JRadioButton jchk_Honorario;
+    private javax.swing.JRadioButton jchk_indefinido1;
     private javax.swing.JPanel jpan_InfoGeneral;
     private javax.swing.JButton jtbtn_agregar;
     private javax.swing.JTextField jtxt_DiaInicio;
@@ -703,6 +745,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_fonoFijo;
     private javax.swing.JTextField jtxt_mesInicio;
     private javax.swing.JTextField jtxt_mesTermino;
+    private javax.swing.JTextField jtxt_sueldo;
     private javax.swing.JTextField jtxt_tipoHorario;
     // End of variables declaration//GEN-END:variables
 }
