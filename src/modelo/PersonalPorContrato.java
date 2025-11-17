@@ -1,6 +1,7 @@
 
 package modelo;
 
+import CRUD.RegistroPersonalPorContrato;
 import java.util.Date;
 
 /**
@@ -17,8 +18,8 @@ public class PersonalPorContrato extends Personal{
     public PersonalPorContrato() {
     }
 
-    public PersonalPorContrato(int sueldo, Date fechaDeInicio, Date fechaDeTermino, boolean esIndefinido, String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario, Date fechaNacimiento) {
-        super(rut, cargo, appaterno, apmaterno, nombres, fono, direccion, tipoHorario, fechaNacimiento);
+    public PersonalPorContrato(int sueldo, Date fechaDeInicio, Date fechaDeTermino, boolean esIndefinido, String rut, String cargo, String appaterno, String apmaterno, String nombre, String fono, String direccion, String tipoHorario, Date fechaNacimiento, boolean contratoIndefinido, boolean honorario) {
+        super(rut, cargo, appaterno, apmaterno, nombre, fono, direccion, tipoHorario, fechaNacimiento, contratoIndefinido, honorario);
         this.sueldo = sueldo;
         this.fechaDeInicio = fechaDeInicio;
         this.fechaDeTermino = fechaDeTermino;
@@ -59,9 +60,8 @@ public class PersonalPorContrato extends Personal{
 
     @Override
     public String toString() {
-        return super.toString()+"PersonalPorContrato{" + "sueldo=" + sueldo + ", fechaDeInicio=" + fechaDeInicio + ", fechaDeTermino=" + fechaDeTermino + ", esIndefinido=" + esIndefinido + '}';
+        return "PersonalPorContrato{" + "sueldo=" + sueldo + ", fechaDeInicio=" + fechaDeInicio + ", fechaDeTermino=" + fechaDeTermino + ", esIndefinido=" + esIndefinido + '}';
     }
 
-   
-   
+
 }

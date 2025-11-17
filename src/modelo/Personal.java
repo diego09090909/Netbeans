@@ -12,25 +12,29 @@ public abstract class Personal {
     private String cargo;
     private String appaterno;
     private String apmaterno;
-    private String nombres;
+    private String nombre;
     private String fono;
     private String direccion;
     private String tipoHorario;
     private Date fechaNacimiento;
+    private boolean contratoIndefinido;
+    private boolean honorario;
 
     public Personal() {
     }
 
-    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombres, String fono, String direccion, String tipoHorario, Date fechaNacimiento) {
+    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombre, String fono, String direccion, String tipoHorario, Date fechaNacimiento, boolean contratoIndefinido, boolean honorario) {
         this.rut = rut;
         this.cargo = cargo;
         this.appaterno = appaterno;
         this.apmaterno = apmaterno;
-        this.nombres = nombres;
+        this.nombre = nombre;
         this.fono = fono;
         this.direccion = direccion;
         this.tipoHorario = tipoHorario;
         this.fechaNacimiento = fechaNacimiento;
+        this.contratoIndefinido = contratoIndefinido;
+        this.honorario = honorario;
     }
 
     public String getRut() {
@@ -65,12 +69,12 @@ public abstract class Personal {
         this.apmaterno = apmaterno;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getFono() {
@@ -105,14 +109,26 @@ public abstract class Personal {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public boolean isContratoIndefinido() {
+        return contratoIndefinido;
+    }
+
+    public void setContratoIndefinido(boolean contratoIndefinido) {
+        this.contratoIndefinido = contratoIndefinido;
+    }
+
+    public boolean isHonorario() {
+        return honorario;
+    }
+
+    public void setHonorario(boolean honorario) {
+        this.honorario = honorario;
+    }
+
     @Override
     public String toString() {
-        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombres=" + nombres + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + ", fechaNacimiento=" + fechaNacimiento + '}';
+        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombre=" + nombre + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + ", fechaNacimiento=" + fechaNacimiento + ", contratoIndefinido=" + contratoIndefinido + ", honorario=" + honorario + '}';
     }
-    
-   
-    
 
-   
     
 }

@@ -4,7 +4,17 @@
  */
 package vista;
 
+
+import CRUD.RegistroPersonalPorContrato;
 import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.PersonalPorContrato;
 
 
 
@@ -70,7 +80,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jtxt_tipoHorario = new javax.swing.JTextField();
-        jchk_indefinido1 = new javax.swing.JRadioButton();
+        jchk_indefinido = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jtxt_sueldo = new javax.swing.JTextField();
 
@@ -201,7 +211,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addComponent(jbtn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         jpan_InfoGeneral.setBackground(new java.awt.Color(204, 215, 198));
@@ -258,7 +268,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jchk_Honorario.setBackground(new java.awt.Color(204, 215, 198));
         jchk_Honorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jchk_Honorario.setForeground(new java.awt.Color(255, 255, 255));
-        jchk_Honorario.setText("Tabajador por Honorario");
+        jchk_Honorario.setText("Trabajador por Honorario");
         jchk_Honorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jchk_HonorarioActionPerformed(evt);
@@ -352,13 +362,13 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Tipo de Horario:");
 
-        jchk_indefinido1.setBackground(new java.awt.Color(204, 215, 198));
-        jchk_indefinido1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jchk_indefinido1.setForeground(new java.awt.Color(255, 255, 255));
-        jchk_indefinido1.setText("Contrato indefinido");
-        jchk_indefinido1.addActionListener(new java.awt.event.ActionListener() {
+        jchk_indefinido.setBackground(new java.awt.Color(204, 215, 198));
+        jchk_indefinido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jchk_indefinido.setForeground(new java.awt.Color(255, 255, 255));
+        jchk_indefinido.setText("Contrato indefinido");
+        jchk_indefinido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jchk_indefinido1ActionPerformed(evt);
+                jchk_indefinidoActionPerformed(evt);
             }
         });
 
@@ -379,8 +389,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel15))
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jchk_indefinido1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jchk_indefinido)
+                                .addGap(18, 18, 18)
                                 .addComponent(jchk_Honorario)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
@@ -418,12 +428,14 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
                                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel8))
-                                        .addGap(33, 33, 33))
+                                            .addComponent(jLabel6))
+                                        .addGap(65, 65, 65))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
                                         .addComponent(jLabel16)
-                                        .addGap(18, 18, 18)))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                                         .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -470,13 +482,11 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jtxt_mesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtxt_agnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel10))
+                        .addGap(26, 26, 26)
+                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jchk_Honorario)
+                            .addComponent(jchk_indefinido)))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -492,11 +502,15 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jtxt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jchk_Honorario)
-                    .addComponent(jchk_indefinido1))
+                            .addComponent(jtxt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jtxt_diaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_mesTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -533,7 +547,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 389, Short.MAX_VALUE)))
+                        .addGap(0, 380, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -556,19 +570,154 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
 
     private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
         //obtiene el rut ingresado por el usuario
+        
+        String rut = jtxt_Rut.getText().trim();
+
+        //inicializar el registro para llamar el metodo
+        RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
+
+        //devuelve el error si se aprieta borra y no hay rut escrito
+        if (rut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un RUT para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //mensaje que pregunta si quieres, el 1 es mas que nada un indicador tipo de mensaje
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar?", "Aviso", 1);
+
+        //si o no para borrar y los error
+        if (opcion == JOptionPane.YES_OPTION) {
+            boolean eliminar = reg.eliminar(rut);
+            JOptionPane.showMessageDialog(this, "El personal Eliminada", "Eliminado", 1);
+        } else {
+            JOptionPane.showMessageDialog(this, "El personal fue NO Eliminada", "Eliminada", 2);
+        }
     }//GEN-LAST:event_jbtn_eliminarActionPerformed
 
     private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
-       
+        String rut = this.jtxt_Rut.getText();
+        RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
+        PersonalPorContrato contrato = reg.buscarPorRut(rut);
+
+        if (contrato != null) {
+            //este bloquea para que el usuario no edite
+            this.jtxt_Rut.setText(contrato.getRut());
+            this.jtxt_Rut.setEnabled(false);
+
+            this.jtxt_Nombre.setText(contrato.getNombre());
+            this.jtxt_fonoFijo.setText(contrato.getFono());
+            this.jtxt_direccion.setText(contrato.getDireccion());
+
+            // Fecha de inicio, tuve que pedir al gpt un calendar para que uniera todo los textos y se dara forma aplica para inicio y termino
+            Date fechaInicio = contrato.getFechaDeInicio();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fechaInicio);
+            this.jtxt_DiaInicio.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+            this.jtxt_mesInicio.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+            this.jtxt_agnoInicio.setText(String.valueOf(cal.get(Calendar.YEAR)));
+
+            // Contrato indefinido
+            this.jchk_indefinido.setSelected(contrato.isContratoIndefinido());
+
+            // Fecha de término si es que aplica
+            if (!contrato.isEsIndefinido()&& contrato.getFechaDeTermino() != null) {
+                cal.setTime((Date) contrato.getFechaDeTermino());
+                this.jtxt_diaTermino.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+                this.jtxt_mesTermino.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
+                this.jtxt_agnoTerrmino.setText(String.valueOf(cal.get(Calendar.YEAR)));
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Personal no encontrado", "Buscar", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jbtn_BuscarActionPerformed
 
     private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
+        PersonalPorContrato reg = new PersonalPorContrato();
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
+        modelo.setRowCount(0); // Limpiar tabla
 
+        List<Contrato> lista = reg.listarTodos(); // Obtener todas las empresas
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        for (Contrato cont : lista) {
+            modelo.addRow(new Object[]{
+                cont.getRut(),
+                cont.getNombre(),
+                cont.getFonoFijo(),
+                cont.getDireccion(),
+                cont.getCantEmpleados(),
+                cont.getCantCasino(),
+                cont.isContratoIndefinido() ? "Indefinido" : "Definido",
+                cont.getFechaInicio() != null ? formato.format(cont.getFechaInicio()) : "",
+                cont.getFechaTermino() != null ? formato.format(cont.getFechaTermino()) : "",
+                cont.isHonorario() ? "Activo" : "Desactualizado",    
+            });
+        }
     }//GEN-LAST:event_jbtn_listarActionPerformed
 
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
 
         //Aca ingresamos las variables que se deben guardar, copien el formato chiquillos
+        
+        String rut, nombre, fonoFijo, direccion;
+        String diaIni, mesIni, agnioIni, diaTerm, mesTerm, agnioTerm;
+        String fechaIniStr, fechaTermStr;
+        Date fechaInicio = null;
+        Date fechaTermino = null;
+        int cantCasino = 0;
+        int cantEmpleados = 0;
+        boolean contratoIndefinido;
+        
+        //Capturamos los textos recuerden seguir este formato en los otros casos
+        rut = this.jtxt_Rut.getText();
+        nombre = this.jtxt_Nombre.getText();
+        fonoFijo = this.jtxt_fonoFijo.getText();
+        direccion = this.jtxt_direccion.getText();
+
+        diaIni = this.jtxt_DiaInicio.getText();
+        mesIni = this.jtxt_mesInicio.getText();
+        agnioIni = this.jtxt_agnoInicio.getText();
+
+        diaTerm = this.jtxt_diaTermino.getText();
+        mesTerm = this.jtxt_mesTermino.getText();
+        agnioTerm = this.jtxt_agnoTerrmino.getText();
+
+        fechaIniStr = diaIni + "/" + mesIni + "/" + agnioIni;
+
+        //Aca realizamos el formato de las fechas
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        // Aca validamos las fechas de inicio y termino
+        try {
+            fechaInicio = formato.parse(fechaIniStr);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Fecha de inicio inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.jtxt_DiaInicio.requestFocus();
+            return; // ← DETIENE el flujo si la fecha es inválida
+        }
+
+        contratoIndefinido = this.jchk_indefinido.isSelected();
+        
+        if (!contratoIndefinido) {
+            fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
+            try {
+                fechaTermino = formato.parse(fechaTermStr);
+            } catch (ParseException e) {
+                JOptionPane.showMessageDialog(this, "Fecha de término inválida", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } else {
+            fechaTermino = null;
+        }
+        //CREA EL NUEVO LIBROEMPRESA y se implementa el actualizar, aparte de los mensajes de error o de aprobacion
+        RegistroPersonalPorContrato contrato = new RegistroPersonalPorContrato(rut, nombre, fecha_inicio, fecha_termino,tipo_horario,sueldo);
+        RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
+
+        if (reg.actualizar(contrato)) {
+            JOptionPane.showMessageDialog(this, "Personal actualizado correctamente", "Actualizar", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo actualizar el personal", "Actualizar", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
 
     private void jtxt_RutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_RutFocusLost
@@ -597,14 +746,13 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
 
     private void jchk_HonorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_HonorarioActionPerformed
 
-        //ehace que si se da click en contrato indefinido fecha termino queda bloqueado
-        boolean contratoIndefinido = jchk_Honorario.isSelected();
+        //Hace que si se da click en contrato indefinido fecha termino queda bloqueado
+        boolean  TrabajadorporHonorario= jchk_Honorario.isSelected();
+        this.jtxt_diaTermino.setEnabled(TrabajadorporHonorario);
+        this.jtxt_mesTermino.setEnabled(TrabajadorporHonorario);
+        this.jtxt_agnoTerrmino.setEnabled(TrabajadorporHonorario);
 
-        this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
-        this.jtxt_mesTermino.setEnabled(!contratoIndefinido);
-        this.jtxt_agnoTerrmino.setEnabled(!contratoIndefinido);
-
-        if (contratoIndefinido) {
+        if (TrabajadorporHonorario) {
             this.jtxt_diaTermino.setText("");
             this.jtxt_mesTermino.setText("");
             this.jtxt_agnoTerrmino.setText("");
@@ -676,9 +824,21 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_direccionActionPerformed
 
-    private void jchk_indefinido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinido1ActionPerformed
+    private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jchk_indefinido1ActionPerformed
+        
+        //hace que si se da click en contrato indefinido fecha termino queda bloqueado
+        boolean contratoIndefinido = jchk_indefinido.isSelected();
+        this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
+        this.jtxt_mesTermino.setEnabled(!contratoIndefinido);
+        this.jtxt_agnoTerrmino.setEnabled(!contratoIndefinido);
+
+        if (contratoIndefinido) {
+            this.jtxt_diaTermino.setText("");
+            this.jtxt_mesTermino.setText("");
+            this.jtxt_agnoTerrmino.setText("");
+        }
+    }//GEN-LAST:event_jchk_indefinidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -731,7 +891,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JButton jbtn_listar;
     private javax.swing.JRadioButton jchk_Honorario;
-    private javax.swing.JRadioButton jchk_indefinido1;
+    private javax.swing.JRadioButton jchk_indefinido;
     private javax.swing.JPanel jpan_InfoGeneral;
     private javax.swing.JButton jtbtn_agregar;
     private javax.swing.JTextField jtxt_DiaInicio;

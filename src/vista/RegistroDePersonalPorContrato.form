@@ -61,7 +61,7 @@
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jpan_InfoGeneral" min="-2" pref="287" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="389" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="380" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -164,7 +164,7 @@
                   <Component id="jbtn_Volver" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jbtn_Salir" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace pref="427" max="32767" attributes="0"/>
+                  <EmptySpace pref="418" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -296,8 +296,8 @@
                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jchk_indefinido1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jchk_indefinido" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jchk_Honorario" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -346,13 +346,16 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -414,12 +417,11 @@
                               <Component id="jtxt_mesInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtxt_agnoInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtxt_diaTermino" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtxt_mesTermino" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtxt_agnoTerrmino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jchk_Honorario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jchk_indefinido" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -442,12 +444,16 @@
                               <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtxt_sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxt_diaTermino" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxt_mesTermino" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxt_agnoTerrmino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jchk_Honorario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jchk_indefinido1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
@@ -542,7 +548,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tabajador por Honorario"/>
+            <Property name="text" type="java.lang.String" value="Trabajador por Honorario"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jchk_HonorarioActionPerformed"/>
@@ -670,7 +676,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtxt_tipoHorario">
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jchk_indefinido1">
+        <Component class="javax.swing.JRadioButton" name="jchk_indefinido">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="cc" type="rgb"/>
@@ -684,7 +690,7 @@
             <Property name="text" type="java.lang.String" value="Contrato indefinido"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jchk_indefinido1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jchk_indefinidoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
