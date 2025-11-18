@@ -83,6 +83,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jchk_indefinido = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jtxt_sueldo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_datosPersonal = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,7 +213,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addComponent(jbtn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpan_InfoGeneral.setBackground(new java.awt.Color(204, 215, 198));
@@ -514,6 +516,19 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        jtbl_datosPersonal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_datosPersonal);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -529,7 +544,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE))
+                    .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -547,7 +563,9 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 380, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -631,26 +649,24 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_BuscarActionPerformed
 
     private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
-        PersonalPorContrato reg = new PersonalPorContrato();
-        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datos.getModel();
+        RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_datosPersonal.getModel();
         modelo.setRowCount(0); // Limpiar tabla
 
-        List<Contrato> lista = reg.listarTodos(); // Obtener todas las empresas
+        List<PersonalPorContrato> lista = reg.listarTodos(); // Obtener todo el personal
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        for (Contrato cont : lista) {
+        for (PersonalPorContrato cont : lista) {
             modelo.addRow(new Object[]{
                 cont.getRut(),
                 cont.getNombre(),
-                cont.getFonoFijo(),
+                cont.getFono(),
                 cont.getDireccion(),
-                cont.getCantEmpleados(),
-                cont.getCantCasino(),
                 cont.isContratoIndefinido() ? "Indefinido" : "Definido",
-                cont.getFechaInicio() != null ? formato.format(cont.getFechaInicio()) : "",
-                cont.getFechaTermino() != null ? formato.format(cont.getFechaTermino()) : "",
-                cont.isHonorario() ? "Activo" : "Desactualizado",    
+                cont.getFechaDeInicio() != null ? formato.format(cont.getFechaDeInicio()) : "",
+                cont.getFechaDeTermino() != null ? formato.format(cont.getFechaDeTermino()) : "",
+                cont.isHonorario() ? "Activo" : "Sin funciones",    
             });
         }
     }//GEN-LAST:event_jbtn_listarActionPerformed
@@ -658,16 +674,14 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
 
         //Aca ingresamos las variables que se deben guardar, copien el formato chiquillos
-        
         String rut, nombre, fonoFijo, direccion;
         String diaIni, mesIni, agnioIni, diaTerm, mesTerm, agnioTerm;
         String fechaIniStr, fechaTermStr;
         Date fechaInicio = null;
         Date fechaTermino = null;
-        int cantCasino = 0;
-        int cantEmpleados = 0;
+        boolean honorario;
         boolean contratoIndefinido;
-        
+
         //Capturamos los textos recuerden seguir este formato en los otros casos
         rut = this.jtxt_Rut.getText();
         nombre = this.jtxt_Nombre.getText();
@@ -697,26 +711,33 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         }
 
         contratoIndefinido = this.jchk_indefinido.isSelected();
-        
+
+        //para que no tuviera error si se agregara el indefinido tuve que agregar esto a sql ALTER TABLE empresa MODIFY fecha_termino DATE NULL;
         if (!contratoIndefinido) {
             fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
             try {
                 fechaTermino = formato.parse(fechaTermStr);
             } catch (ParseException e) {
-                JOptionPane.showMessageDialog(this, "Fecha de término inválida", "Validación", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Fecha de término inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+                this.jtxt_diaTermino.requestFocus();
                 return;
             }
         } else {
-            fechaTermino = null;
+            fechaTermino = null; // no se guarda fecha si es indefinido
         }
-        //CREA EL NUEVO LIBROEMPRESA y se implementa el actualizar, aparte de los mensajes de error o de aprobacion
-        RegistroPersonalPorContrato contrato = new RegistroPersonalPorContrato(rut, nombre, fecha_inicio, fecha_termino,tipo_horario,sueldo);
+        
+        
+        //aca dejamos listo el booleano
+        contratoIndefinido = this.jchk_indefinido.isSelected();
+
+        //aca conectamos el agregar a la clase empresa y a la clase registroEmpresas, ademas de que usamos el metodo de agregar
+        PersonalPorContrato contrato = new PersonalPorContrato();
         RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
 
-        if (reg.actualizar(contrato)) {
-            JOptionPane.showMessageDialog(this, "Personal actualizado correctamente", "Actualizar", JOptionPane.INFORMATION_MESSAGE);
+        if (reg.agregarRegistroPersonalPorContrato(contrato)) {
+            JOptionPane.showMessageDialog(this, " Personal agregad correctamente", "Ingreso Empresa", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "No se pudo actualizar el personal", "Actualizar", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, " No se pudo agregar el Personal", "Ingreso Empresa", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
 
@@ -884,6 +905,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_Actualizar;
     private javax.swing.JButton jbtn_Buscar;
     private javax.swing.JButton jbtn_Salir;
@@ -893,6 +915,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JRadioButton jchk_Honorario;
     private javax.swing.JRadioButton jchk_indefinido;
     private javax.swing.JPanel jpan_InfoGeneral;
+    private javax.swing.JTable jtbl_datosPersonal;
     private javax.swing.JButton jtbtn_agregar;
     private javax.swing.JTextField jtxt_DiaInicio;
     private javax.swing.JTextField jtxt_Nombre;

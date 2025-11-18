@@ -19,37 +19,50 @@ import modelo.PersonalPorContrato;
  */
 public class RegistroPersonalPorContrato {
     
-    public boolean agregarRegistroPersonalPorContrato(PersonalPorContrato contrato){
-     
-        Date date;
-        try{
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexion();
-            
-            String query = "INSET INTO Contrato (rut, nombre, appaterno, apmaterno, fecha_inicio, fecha_termino,tipo_horario,sueldo)values(?,?,?,?,?,?,?,?)";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, contrato.getSueldo());
-            stmt.setString(2, contrato.getRut());
-            stmt.setString(3, contrato.getNombre());
-            stmt.setString(4, contrato.getAppaterno());
-            stmt.setString(5, contrato.getApmaterno());
-            stmt.setString(6,contrato.getTipoHorario());
-            stmt.setDate(7, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
-            stmt.setDate(8, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
-            stmt.setBoolean(9, true);
-                        
-            stmt.executeUpdate();
-            stmt.close();
-            cnx.close();
+        public boolean agregarRegistroPersonalPorContrato(PersonalPorContrato contrato) {
 
-            return true;
+        try {
+        Conexion con = new Conexion();
+        Connection cnx = con.obtenerConexion();
 
-        }catch (SQLException e) {
-            System.out.println("Error al agregar Personal" + e.getMessage());
-            return false;
+        String query = "INSERT INTO contrato (rut, nombre, appaterno, apmaterno, fecha_inicio, fecha_termino, tipo_horario, sueldo) VALUES (?,?,?,?,?,?,?,?)";
+        PreparedStatement stmt = cnx.prepareStatement(query);
+
+        // 1. Rut
+        stmt.setString(1, contrato.getRut());
+        // 2. Nombre
+        stmt.setString(2, contrato.getNombre());
+        // 3. Apellido paterno
+        stmt.setString(3, contrato.getAppaterno());
+        // 4. Apellido materno
+        stmt.setString(4, contrato.getApmaterno());
+        // 5. Fecha inicio SIEMPRE EXISTE
+        stmt.setDate(5, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
+        // 6. Fecha termino (puede ser null)
+        if (contrato.getFechaDeTermino() != null) {
+            stmt.setDate(6, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
+        } else {
+            stmt.setNull(6, java.sql.Types.DATE);
         }
+        // 7. Tipo horario
+        stmt.setString(7, contrato.getTipoHorario());
+        // 8. Sueldo
+        stmt.setInt(8, contrato.getSueldo());
+        
+        // Ejecutar
+        stmt.executeUpdate();
+        // Cerrar
+        stmt.close();
+        cnx.close();
+
+        return true;
+
+    } catch (SQLException e) {
+        System.out.println("Error al agregar Personal: " + e.getMessage());
+        return false;
     }
-    
+}
+
         public boolean eliminar(String rut) {
         try {
             Conexion con = new Conexion();
@@ -124,8 +137,9 @@ public class RegistroPersonalPorContrato {
             stmt.setString(3, contrato.getFono());
             stmt.setString(4, contrato.getDireccion());
             stmt.setBoolean(5, contrato.isEsIndefinido());
-            stmt.setDate(6, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
-            stmt.setDate(7, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
+            stmt.setBoolean(6, contrato.isHonorario());
+            stmt.setDate(7, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
+            stmt.setDate(8, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
             
 
             if (contrato.getFechaDeTermino() != null) {
