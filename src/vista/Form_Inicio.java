@@ -1,11 +1,11 @@
-
 package vista;
 
-
+import CRUD.RegistroUsuario;
 import java.awt.Color;
 import java.util.Date;
 import bd.CInicio;
 import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -19,7 +19,7 @@ public class Form_Inicio extends javax.swing.JFrame {
 
     public Form_Inicio() {
         initComponents();
-               
+
     }
 
     @SuppressWarnings("unchecked")
@@ -270,26 +270,6 @@ public class Form_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_userActionPerformed
-    Form_MenuPrincipal al = new Form_MenuPrincipal();
-    al.setVisible(true);
-        
-    String usuario = jtxt_user.getText().trim();
-    char[] passChars = jtxt_paswd.getPassword();
-    String contrasenia = new String(passChars).trim();
-
-    if (usuario.isEmpty() || contrasenia.isEmpty()) {
-        JOptionPane.showMessageDialog(
-                this,
-                "Por favor, completa usuario y contraseña.",
-                "Campos vacíos",
-                JOptionPane.WARNING_MESSAGE
-        );
-    if (usuario.isEmpty() || contrasenia.isEmpty()) {
-        jtxt_user.requestFocusInWindow();
-    } else {
-        jtxt_paswd.requestFocusInWindow();
-    }
-   }
 
 
     }//GEN-LAST:event_jtxt_userActionPerformed
@@ -340,31 +320,44 @@ public class Form_Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_paswdMousePressed
 
     private void jbtn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_EntrarActionPerformed
-                                        
-    String usuario = jtxt_user.getText().trim();
-    String contrasenia = String.valueOf(jtxt_paswd.getPassword()).trim();
 
-    if (usuario.isEmpty() || contrasenia.isEmpty()) {
-        JOptionPane.showMessageDialog(
-            this,
-            "Por favor, completa usuario y contraseña.",
-            "Campos vacíos",
-            JOptionPane.WARNING_MESSAGE
-        );
-        return;
-    }
+        String nombre = jtxt_user.getText().trim();
+        String contrasena = String.valueOf(jtxt_paswd.getPassword()).trim();
 
-    CInicio login = new CInicio();
-    login.validarUsuario(jtxt_user, jtxt_paswd);
+        if (nombre.isEmpty() || contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, completa usuario y contraseña.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+
+            if (nombre.isEmpty()) {
+                jtxt_user.requestFocusInWindow();
+            } else {
+                jtxt_paswd.requestFocusInWindow();
+            }
+
+            return;
+        }
+
+        Usuario u = new Usuario(nombre, contrasena);
+        RegistroUsuario reg = new RegistroUsuario();
+
+        if (reg.validarUsuario(u)) {
+            JOptionPane.showMessageDialog(this, "Bienvenido " + nombre, "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
+
+            Form_MenuPrincipal menu = new Form_MenuPrincipal();
+            menu.setVisible(true);
+            this.dispose(); 
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Acceso denegado", JOptionPane.ERROR_MESSAGE);
+            jtxt_user.requestFocusInWindow();
+        }
     }//GEN-LAST:event_jbtn_EntrarActionPerformed
 
     private void jbtn_singUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_singUpActionPerformed
-        Form_RegistroUsuario menu = new Form_RegistroUsuario ();
+        Form_RegistroUsuario menu = new Form_RegistroUsuario();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jbtn_singUpActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

@@ -8,34 +8,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author k-ort
- */
 public class InventarioPP {
 
-    Connection conn;
-    PreparedStatement ps;
-    ResultSet rs;
-
     public boolean insertar(Inventario inv) {
-        String sql = "INSERT INTO inventario (id_producto, codigo, nombre, descripcion, tipo, stock_actual, stock_minimo, ubicacion, estado) "
+        String query = "INSERT INTO inventario (id_producto, codigo, nombre, descripcion, tipo, stock_actual, stock_minimo, ubicacion, estado) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
-            Conexion conn = new Conexion();
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1, inv.getIdProducto());
-            ps.setString(2, inv.getCodigo());
-            ps.setString(3, inv.getNombre());
-            ps.setString(4, inv.getDescripcion());
-            ps.setString(5, inv.getTipo());
-            ps.setInt(6, inv.getStockActual());
-            ps.setInt(7, inv.getStockMinimo());
-            ps.setString(8, inv.getUbicacion());
-            ps.setString(9, inv.getEstado());
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
 
-            return ps.executeUpdate() > 0;
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, inv.getIdProducto());
+            stmt.setString(2, inv.getCodigo());
+            stmt.setString(3, inv.getNombre());
+            stmt.setString(4, inv.getDescripcion());
+            stmt.setString(5, inv.getTipo());
+            stmt.setInt(6, inv.getStockActual());
+            stmt.setInt(7, inv.getStockMinimo());
+            stmt.setString(8, inv.getUbicacion());
+            stmt.setString(9, inv.getEstado());
+
+            int filas = stmt.executeUpdate();
+
+            stmt.close();
+            cnx.close();
+
+            return filas > 0;
 
         } catch (SQLException e) {
             System.out.println("Error al insertar inventario... " + e.getMessage());
@@ -45,12 +44,14 @@ public class InventarioPP {
 
     public ArrayList<Inventario> listar() {
         ArrayList<Inventario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM inventario";
+        String query = "SELECT * FROM inventario";
 
         try {
-            Conexion conn = new Conexion();
-            ps = conn.prepareStatement(sql);
-            rs = ps.executeQuery();
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Inventario inv = new Inventario(
@@ -63,10 +64,13 @@ public class InventarioPP {
                         rs.getInt("stock_minimo"),
                         rs.getString("ubicacion"),
                         rs.getString("estado")
-                ) {
-                };
+                );
                 lista.add(inv);
             }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
 
         } catch (SQLException e) {
             System.out.println("Error al listar inventario... " + e.getMessage());
@@ -76,22 +80,30 @@ public class InventarioPP {
     }
 
     public boolean actualizar(Inventario inv) {
-        String sql = "UPDATE inventario SET codigo=?, nombre=?, descripcion=?, tipo=?, stock_actual=?, "
+        String query = "UPDATE inventario SET codigo=?, nombre=?, descripcion=?, tipo=?, stock_actual=?, "
                 + "stock_minimo=?, ubicacion=?, estado=? WHERE id_producto=?";
-        try {
-            Conexion conn = new Conexion();
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, inv.getCodigo());
-            ps.setString(2, inv.getNombre());
-            ps.setString(3, inv.getDescripcion());
-            ps.setString(4, inv.getTipo());
-            ps.setInt(5, inv.getStockActual());
-            ps.setInt(6, inv.getStockMinimo());
-            ps.setString(7, inv.getUbicacion());
-            ps.setString(8, inv.getEstado());
-            ps.setInt(9, inv.getIdProducto());
 
-            return ps.executeUpdate() > 0;
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, inv.getCodigo());
+            stmt.setString(2, inv.getNombre());
+            stmt.setString(3, inv.getDescripcion());
+            stmt.setString(4, inv.getTipo());
+            stmt.setInt(5, inv.getStockActual());
+            stmt.setInt(6, inv.getStockMinimo());
+            stmt.setString(7, inv.getUbicacion());
+            stmt.setString(8, inv.getEstado());
+            stmt.setInt(9, inv.getIdProducto());
+
+            int filas = stmt.executeUpdate();
+
+            stmt.close();
+            cnx.close();
+
+            return filas > 0;
 
         } catch (SQLException e) {
             System.out.println("Error al actualizar inventario... " + e.getMessage());
@@ -100,14 +112,21 @@ public class InventarioPP {
     }
 
     public boolean eliminar(int id) {
-        String sql = "DELETE FROM inventario WHERE id_producto=?";
+        String query = "DELETE FROM inventario WHERE id_producto=?";
 
         try {
-            Conexion conn = new Conexion();
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1, id);
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
 
-            return ps.executeUpdate() > 0;
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, id);
+
+            int filas = stmt.executeUpdate();
+
+            stmt.close();
+            cnx.close();
+
+            return filas > 0;
 
         } catch (SQLException e) {
             System.out.println("Error al eliminar inventario... " + e.getMessage());
@@ -115,7 +134,7 @@ public class InventarioPP {
         }
     }
 
-    public Inventario buscarPorRut(int idProducto) {
+    public Inventario buscarPorId(int idProducto) {
         Inventario inve = new Inventario();
 
         try {
@@ -129,16 +148,15 @@ public class InventarioPP {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-
+                inve.setIdProducto(idProducto);
                 inve.setCodigo(rs.getString("codigo"));
-                inve.setNombre(rs.getNString("nombre"));
+                inve.setNombre(rs.getString("nombre"));
                 inve.setDescripcion(rs.getString("descripcion"));
                 inve.setTipo(rs.getString("tipo"));
                 inve.setStockActual(rs.getInt("stock_actual"));
                 inve.setStockMinimo(rs.getInt("stock_minimo"));
                 inve.setUbicacion(rs.getString("ubicacion"));
                 inve.setEstado(rs.getString("estado"));
-
             }
 
             rs.close();
@@ -146,10 +164,9 @@ public class InventarioPP {
             cnx.close();
 
         } catch (SQLException e) {
-            System.out.println("Error al listar el inventario: " + e.getMessage());
-
+            System.out.println("Error al buscar inventario por ID: " + e.getMessage());
         }
+
         return inve;
     }
-
 }
