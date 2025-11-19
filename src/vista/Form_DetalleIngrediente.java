@@ -24,6 +24,7 @@ public class Form_DetalleIngrediente extends javax.swing.JFrame {
      */
     public Form_DetalleIngrediente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     private void limpiar() {
@@ -663,9 +664,9 @@ public class Form_DetalleIngrediente extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_LimpiarActionPerformed
 
     private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
-        Form_MenuPrincipal menu = new Form_MenuPrincipal();
+        Form_DetalleIngrediente menu = new Form_DetalleIngrediente();
         menu.setVisible(true);
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_jbtn_VolverActionPerformed
 
     private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed

@@ -4,7 +4,6 @@
  */
 package vista;
 
-
 import CRUD.RegistroPersonalPorContrato;
 import java.awt.Color;
 import java.text.ParseException;
@@ -16,14 +15,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.PersonalPorContrato;
 
-
-
 /**
  *
  * @author ikari
  */
 public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroDePersonalPorContrato.class.getName());
 
     /**
@@ -31,7 +28,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
      */
     public RegistroDePersonalPorContrato() {
         initComponents();
-        this.setLocationRelativeTo(null); 
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -43,6 +40,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -268,6 +266,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         });
 
         jchk_Honorario.setBackground(new java.awt.Color(204, 215, 198));
+        buttonGroup1.add(jchk_Honorario);
         jchk_Honorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jchk_Honorario.setForeground(new java.awt.Color(255, 255, 255));
         jchk_Honorario.setText("Trabajador por Honorario");
@@ -365,6 +364,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jLabel16.setText("Tipo de Horario:");
 
         jchk_indefinido.setBackground(new java.awt.Color(204, 215, 198));
+        buttonGroup1.add(jchk_indefinido);
         jchk_indefinido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jchk_indefinido.setForeground(new java.awt.Color(255, 255, 255));
         jchk_indefinido.setText("Contrato indefinido");
@@ -584,12 +584,42 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_VolverActionPerformed
 
     private void jbtn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ActualizarActionPerformed
+        PersonalPorContrato contrato = new PersonalPorContrato();
+
+        contrato.setRut(jtxt_Rut.getText());
+        contrato.setNombre(jtxt_Nombre.getText());
+        contrato.setFono(jtxt_fonoFijo.getText());
+        contrato.setDireccion(jtxt_direccion.getText());
+        contrato.setEsIndefinido(jchk_indefinido.isSelected());
+        contrato.setHonorario(jchk_Honorario.isSelected());
+
+        String diaIni = jtxt_DiaInicio.getText();
+        String mesIni = jtxt_mesInicio.getText();
+        String agnoIni = jtxt_agnoInicio.getText();
+
+        String diaTerm = jtxt_diaTermino.getText();
+        String mesTerm = jtxt_mesTermino.getText();
+        String agnoTerm = jtxt_agnoTerrmino.getText();
+
+        java.sql.Date fechaInicio = convertirFecha(diaIni, mesIni, agnoIni);
+        java.sql.Date fechaTermino = convertirFecha(diaTerm, mesTerm, agnoTerm);
+
+        contrato.setFechaDeInicio(fechaInicio);
+        contrato.setFechaDeTermino(fechaTermino);
+
+        RegistroPersonalPorContrato dao = new RegistroPersonalPorContrato();
+
+        if (dao.actualizar(contrato)) {
+            JOptionPane.showMessageDialog(this, "Registro actualizado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "ERROR: No se pudo actualizar el registro.");
+        }
 
     }//GEN-LAST:event_jbtn_ActualizarActionPerformed
 
     private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
         //obtiene el rut ingresado por el usuario
-        
+
         String rut = jtxt_Rut.getText().trim();
 
         //inicializar el registro para llamar el metodo
@@ -638,7 +668,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
             this.jchk_indefinido.setSelected(contrato.isContratoIndefinido());
 
             // Fecha de término si es que aplica
-            if (!contrato.isEsIndefinido()&& contrato.getFechaDeTermino() != null) {
+            if (!contrato.isEsIndefinido() && contrato.getFechaDeTermino() != null) {
                 cal.setTime((Date) contrato.getFechaDeTermino());
                 this.jtxt_diaTermino.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
                 this.jtxt_mesTermino.setText(String.valueOf(cal.get(Calendar.MONTH) + 1));
@@ -667,79 +697,77 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 cont.isContratoIndefinido() ? "Indefinido" : "Definido",
                 cont.getFechaDeInicio() != null ? formato.format(cont.getFechaDeInicio()) : "",
                 cont.getFechaDeTermino() != null ? formato.format(cont.getFechaDeTermino()) : "",
-                cont.isHonorario() ? "Activo" : "Sin funciones",    
-            });
+                cont.isHonorario() ? "Activo" : "Sin funciones",});
         }
     }//GEN-LAST:event_jbtn_listarActionPerformed
 
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
 
-        //Aca ingresamos las variables que se deben guardar, copien el formato chiquillos
-        String rut, nombre, fonoFijo, direccion;
-        String diaIni, mesIni, agnioIni, diaTerm, mesTerm, agnioTerm;
-        String fechaIniStr, fechaTermStr;
-        Date fechaInicio = null;
-        Date fechaTermino = null;
-        boolean honorario;
-        boolean contratoIndefinido;
+    // Capturamos los datos del formulario
+    String rut = jtxt_Rut.getText().trim();
+    String nombre = jtxt_Nombre.getText().trim();
+    String fonoFijo = jtxt_fonoFijo.getText().trim();
+    String direccion = jtxt_direccion.getText().trim();
 
-        //Capturamos los textos recuerden seguir este formato en los otros casos
-        rut = this.jtxt_Rut.getText();
-        nombre = this.jtxt_Nombre.getText();
-        fonoFijo = this.jtxt_fonoFijo.getText();
-        direccion = this.jtxt_direccion.getText();
+    String diaIni = jtxt_DiaInicio.getText().trim();
+    String mesIni = jtxt_mesInicio.getText().trim();
+    String agnioIni = jtxt_agnoInicio.getText().trim();
 
-        diaIni = this.jtxt_DiaInicio.getText();
-        mesIni = this.jtxt_mesInicio.getText();
-        agnioIni = this.jtxt_agnoInicio.getText();
+    String diaTerm = jtxt_diaTermino.getText().trim();
+    String mesTerm = jtxt_mesTermino.getText().trim();
+    String agnioTerm = jtxt_agnoTerrmino.getText().trim();
 
-        diaTerm = this.jtxt_diaTermino.getText();
-        mesTerm = this.jtxt_mesTermino.getText();
-        agnioTerm = this.jtxt_agnoTerrmino.getText();
+    boolean contratoIndefinido = jchk_indefinido.isSelected();
+    boolean honorario = jchk_Honorario.isSelected();
 
-        fechaIniStr = diaIni + "/" + mesIni + "/" + agnioIni;
+    // Validación básica
+    if (rut.isEmpty() || nombre.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Rut y Nombre son obligatorios", "Validación", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
 
-        //Aca realizamos el formato de las fechas
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    // Formateo de fechas
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    Date fechaInicio = null;
+    Date fechaTermino = null;
 
-        // Aca validamos las fechas de inicio y termino
+    try {
+        fechaInicio = formato.parse(diaIni + "/" + mesIni + "/" + agnioIni);
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(this, "Fecha de inicio inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+        jtxt_DiaInicio.requestFocus();
+        return;
+    }
+
+    if (!contratoIndefinido) {
         try {
-            fechaInicio = formato.parse(fechaIniStr);
+            fechaTermino = formato.parse(diaTerm + "/" + mesTerm + "/" + agnioTerm);
         } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Fecha de inicio inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_DiaInicio.requestFocus();
-            return; // ← DETIENE el flujo si la fecha es inválida
+            JOptionPane.showMessageDialog(this, "Fecha de término inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
+            jtxt_diaTermino.requestFocus();
+            return;
         }
+    }
 
-        contratoIndefinido = this.jchk_indefinido.isSelected();
+    // Creamos el objeto con los datos
+    PersonalPorContrato contrato = new PersonalPorContrato();
+    contrato.setRut(rut);
+    contrato.setNombre(nombre);
+    contrato.setFono(fonoFijo);
+    contrato.setDireccion(direccion);
+    contrato.setFechaDeInicio(fechaInicio);
+    contrato.setFechaDeTermino(fechaTermino);
+    contrato.setContratoIndefinido(contratoIndefinido);
+    contrato.setHonorario(honorario);
 
-        //para que no tuviera error si se agregara el indefinido tuve que agregar esto a sql ALTER TABLE empresa MODIFY fecha_termino DATE NULL;
-        if (!contratoIndefinido) {
-            fechaTermStr = diaTerm + "/" + mesTerm + "/" + agnioTerm;
-            try {
-                fechaTermino = formato.parse(fechaTermStr);
-            } catch (ParseException e) {
-                JOptionPane.showMessageDialog(this, "Fecha de término inválida (dd/MM/aaaa)", "Validación", JOptionPane.WARNING_MESSAGE);
-                this.jtxt_diaTermino.requestFocus();
-                return;
-            }
-        } else {
-            fechaTermino = null; // no se guarda fecha si es indefinido
-        }
-        
-        
-        //aca dejamos listo el booleano
-        contratoIndefinido = this.jchk_indefinido.isSelected();
-
-        //aca conectamos el agregar a la clase empresa y a la clase registroEmpresas, ademas de que usamos el metodo de agregar
-        PersonalPorContrato contrato = new PersonalPorContrato();
-        RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
-
-        if (reg.agregarRegistroPersonalPorContrato(contrato)) {
-            JOptionPane.showMessageDialog(this, " Personal agregad correctamente", "Ingreso Empresa", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, " No se pudo agregar el Personal", "Ingreso Empresa", JOptionPane.ERROR_MESSAGE);
-        }
+    // Llamamos al DAO
+    RegistroPersonalPorContrato reg = new RegistroPersonalPorContrato();
+    if (reg.agregarRegistroPersonalPorContrato(contrato)) {
+        JOptionPane.showMessageDialog(this, "Personal agregado correctamente", "Ingreso Personal", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(this, "No se pudo agregar el Personal", "Error", JOptionPane.ERROR_MESSAGE);
+    
+}
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
 
     private void jtxt_RutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_RutFocusLost
@@ -769,7 +797,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private void jchk_HonorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_HonorarioActionPerformed
 
         //Hace que si se da click en contrato indefinido fecha termino queda bloqueado
-        boolean  TrabajadorporHonorario= jchk_Honorario.isSelected();
+        boolean TrabajadorporHonorario = jchk_Honorario.isSelected();
         this.jtxt_diaTermino.setEnabled(TrabajadorporHonorario);
         this.jtxt_agnoTerrmino.setEnabled(TrabajadorporHonorario);
 
@@ -847,7 +875,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
 
     private void jchk_indefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_indefinidoActionPerformed
         // TODO add your handling code here:
-        
+
         //hace que si se da click en contrato indefinido fecha termino queda bloqueado
         boolean contratoIndefinido = jchk_indefinido.isSelected();
         this.jtxt_diaTermino.setEnabled(!contratoIndefinido);
@@ -887,6 +915,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -931,4 +960,8 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_sueldo;
     private javax.swing.JTextField jtxt_tipoHorario;
     // End of variables declaration//GEN-END:variables
+
+    private java.sql.Date convertirFecha(String diaTerm, String mesTerm, String agnoTerm) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

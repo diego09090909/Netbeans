@@ -139,6 +139,14 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jbtn_Salir.setText("Salir");
         jbtn_Salir.setBorder(null);
         jbtn_Salir.setPreferredSize(new java.awt.Dimension(162, 22));
+        jbtn_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbtn_SalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbtn_SalirMouseExited(evt);
+            }
+        });
         jbtn_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_SalirActionPerformed(evt);
@@ -281,15 +289,15 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_EmpresaActionPerformed
 
     private void jbtn_EmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_EmpresaMouseEntered
-        jbtn_Empresa.setBackground(new Color(74, 160, 196));
+        jbtn_Empresa.setBackground(new Color(115, 196, 173));
     }//GEN-LAST:event_jbtn_EmpresaMouseEntered
 
     private void jbtn_PersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_PersonalMouseEntered
-        jbtn_Personal.setBackground(new Color(74, 160, 196));
+        jbtn_Personal.setBackground(new Color(95,176,153));
     }//GEN-LAST:event_jbtn_PersonalMouseEntered
 
     private void jbtn_MinutasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_MinutasMouseEntered
-        jbtn_Minutas.setBackground(new Color(74, 160, 196));
+        jbtn_Minutas.setBackground(new Color(95,176,153));
     }//GEN-LAST:event_jbtn_MinutasMouseEntered
 
     private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
@@ -297,23 +305,23 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_SalirActionPerformed
 
     private void jbtn_EmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_EmpresaMouseExited
-        jbtn_Empresa.setBackground(new Color(123, 183, 209));
+        jbtn_Empresa.setBackground(new Color(115, 196, 173));
     }//GEN-LAST:event_jbtn_EmpresaMouseExited
 
     private void jbtn_PersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_PersonalMouseExited
-        jbtn_Personal.setBackground(new Color(123, 183, 209));
+        jbtn_Personal.setBackground(new Color(115, 196, 173));
     }//GEN-LAST:event_jbtn_PersonalMouseExited
 
     private void jbtn_MinutasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_MinutasMouseExited
-        jbtn_Minutas.setBackground(new Color(123, 183, 209));
+        jbtn_Minutas.setBackground(new Color(115, 196, 173));
     }//GEN-LAST:event_jbtn_MinutasMouseExited
 
     private void jbtn_InventarioActivos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1MouseEntered
-        // TODO add your handling code here:
+        jbtn_InventarioActivos1.setBackground(new Color(95,176,153));
     }//GEN-LAST:event_jbtn_InventarioActivos1MouseEntered
 
     private void jbtn_InventarioActivos1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1MouseExited
-        // TODO add your handling code here:
+        jbtn_InventarioActivos1.setBackground(new Color(115, 196, 173));
     }//GEN-LAST:event_jbtn_InventarioActivos1MouseExited
 
     private void jbtn_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_PersonalActionPerformed
@@ -333,6 +341,14 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         al.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtn_MinutasActionPerformed
+
+    private void jbtn_SalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_SalirMouseExited
+        jbtn_Salir.setBackground(new Color(115, 196, 173));
+    }//GEN-LAST:event_jbtn_SalirMouseExited
+
+    private void jbtn_SalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_SalirMouseEntered
+        jbtn_Salir.setBackground(new Color(95,176,153));
+    }//GEN-LAST:event_jbtn_SalirMouseEntered
 
 //    /**
 //     * @param args the command line arguments

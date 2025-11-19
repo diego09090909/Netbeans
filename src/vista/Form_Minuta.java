@@ -804,7 +804,9 @@ public class Form_Minuta extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_LimpiarActionPerformed
 
     private void jbtn_verDetalleMinutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_verDetalleMinutaActionPerformed
-        // TODO add your handling code here:
+        From_MinutaDetalle menu = new From_MinutaDetalle();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtn_verDetalleMinutaActionPerformed
 
     /**
