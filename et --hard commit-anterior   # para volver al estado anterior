@@ -1,0 +1,180 @@
+[33mcommit 8e0a80b98e78cd2d5833781bc97603e4c19570f4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 21:49:19 2025 -0300
+
+    creacion de form inicio, y bugs de registro personal
+
+[33mcommit 8639618209e7e7bd7af8f13773af5e0987c0d51e[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 17:17:59 2025 -0300
+
+    creacion de form inicio, y bugs de registro personal
+
+[33mcommit f3cbcdfc69bec97a99c0aa8930e57df07a24c83b[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 19:52:43 2025 +0000
+
+    Merge completo: resolución de conflictos y nuevos formularios
+
+[33mcommit 4857a4a196254303bf1679990d3f48211c319d06[m
+Merge: c80c355 82131b5
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 19:00:48 2025 +0000
+
+    Merge: solución de conflictos y sincronización con origin/main
+
+[33mcommit c80c35550b8d60955cdd8f19e3e5d7fbb776a949[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 13:47:37 2025 +0000
+
+    Solución de bugs en conexión, creación de form Minuta
+
+[33mcommit 424feb6cfa7d82aa2c7d8b860c6f525c9b93a6a0[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Tue Nov 18 10:44:32 2025 -0300
+
+    Form minuta, solucion de bugs, este va directo al respaldo por si las dudas
+
+[33mcommit 82131b53d3cd9ef657c04a25bcc63cca9c3acaa9[m
+Author: Maika581 <jo.sanchezt@duocuc.cl>
+Date:   Mon Nov 17 15:56:52 2025 -0300
+
+    En el modelo Persona agrege como atributos contratoIndefinido y Honorario,
+    ademas actualice el atributo nombres y lo cambie por nombre, introduje metosdos faltantes al Crud de RegistroOErsonalContrato, solucione problemas que tenia con los botones de actualizar, eliminar, listar, ademas elimine el crud para registos de honorarios tanto en modelo como en vista, ya que se juntara con la vista de RegistroDePersonal
+
+[33mcommit 28d7db4ab6bdea342ce4c841ec239c95656a020e[m
+Author: Maika581 <jo.sanchezt@duocuc.cl>
+Date:   Mon Nov 17 10:49:25 2025 -0300
+
+[33mcommit d92cf994220118e799fae5e5a80804f472723eb0[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Mon Nov 17 13:39:18 2025 +0000
+
+    Rebase: actualizo formularios y lógica de Inventario
+
+[33mcommit a9efa1b43c65c6b2f8696407d1c40c0d52244b8d[m
+Author: Maika581 <jo.sanchezt@duocuc.cl>
+Date:   Mon Nov 17 10:32:47 2025 -0300
+
+[33mcommit b4e5b5337516be545dd77f451679cbaae0ab0cca[m
+Author: Maika581 <jo.sanchezt@duocuc.cl>
+Date:   Mon Nov 17 01:29:57 2025 -0300
+
+[33mcommit 5f2ac28fb0fcdddb77c11230e12019934be1f880[m
+Author: Maika581 <jo.sanchezt@duocuc.cl>
+Date:   Mon Nov 17 01:15:16 2025 -0300
+
+[33mcommit 1c4daf81adf98b766362a7968573c0fe332813e4[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Sat Nov 15 17:56:12 2025 +0000
+
+    Cambio de colores programa, trabajo en administración de inventario y base SQL
+
+[33mcommit d852c9ae42b8117aa4992edbdeb47bae6a790e64[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Sat Nov 15 13:42:41 2025 +0000
+
+    Actualización del script SQL
+
+[33mcommit aec2bef57f9f930e7f4b3e81ecd1e288aa1067f6[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Sat Nov 15 10:38:17 2025 -0300
+
+    Trabajo 3
+
+[33mcommit 428c2958af809016c6182038c440defd9eb94cce[m
+Merge: 1f5588f 16e869e
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Sat Nov 15 12:59:44 2025 +0000
+
+    Ignorar carpeta de respaldo
+
+[33mcommit 16e869e4615c32a16b7e30b06c43f173925d7a3e[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Sat Nov 15 02:15:53 2025 -0300
+
+    Clases actualizadas con la base de datos, carpeta Actualizada CRUD y nuevos modelos en la carpeta
+
+[33mcommit c53596fda924151902577934b74a4b18ab052ecf[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Fri Nov 14 22:09:10 2025 -0300
+
+    test commit nuevo
+
+[33mcommit 1f5588f07e3e4bbb7fd631754c56624281a3f47a[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Fri Nov 14 21:29:52 2025 +0000
+
+    Resolución de conflictos tras pull con merge
+
+[33mcommit 97fdad067efc28b8dfa69ee5839c30874f5dfeca[m
+Author: diego <diego@DESKTOP-8MEVHAM>
+Date:   Fri Nov 14 18:17:15 2025 -0300
+
+    Trabajo 3
+
+[33mcommit 768da97768cd4cbce3e38281a0171455121fbe79[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Fri Nov 14 17:35:40 2025 -0300
+
+    Clase Inicio y conexion mejoradas, Form_inicio funcional con contraseña en base de datos
+
+[33mcommit 0b8203ba285d5ab56e1c1a9346ebe062b2b2bef7[m[33m ([m[1;31morigin/respaldo-main[m[33m, [m[1;32mrespaldo-main[m[33m)[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Thu Nov 13 17:55:59 2025 +0000
+
+    Agregado script SQL de producción para importar en phpMyAdmin
+
+[33mcommit ab001f4d4d1ddc4468e3b1b587518f33dfb07822[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Thu Nov 13 15:14:28 2025 +0000
+
+    Agregado el uso de actualizar y buscar, lógica de contrato indefinido, orden de datos en el jtable
+
+[33mcommit 116bfe2478ee9408987d461af3a7abb6d046ec1f[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Thu Nov 13 03:12:48 2025 +0000
+
+    Agregada validación de fechas en EmpresaCrud
+
+[33mcommit 25e404bfccc8bc226e30e4e4f3c988ee556fa406[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Thu Nov 13 00:20:58 2025 +0000
+
+    Agrega botón eliminar, conexión SQL y nuevas clases
+
+[33mcommit e132d62c8d5e76a09202f7f2241c290353b9108a[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Wed Nov 12 20:59:35 2025 -0300
+
+    Agregado clase padre Producto, registro activos y registro consumibles
+
+[33mcommit 516871579af893669c6798c45ccb841b3188908b[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Wed Nov 12 20:43:14 2025 +0000
+
+    Tu mensaje
+
+[33mcommit 121515b8351832a75d7c4c5568d90ea9ad81e183[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Wed Nov 12 20:39:36 2025 +0000
+
+    Primer commit con lógica de empresa y diseño de formularios
+
+[33mcommit f15fe7c10203a2ac6b67f20d193cbaed42d6c888[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Tue Nov 11 21:05:28 2025 -0300
+
+    nueva intro de programa y su codigo interno
+
+[33mcommit 86278e3e4ce3f73993604ac7433305b138698c29[m
+Author: Kevin Gonzalez <ke.gonzalezo@duocuc.cl>
+Date:   Tue Nov 11 16:01:07 2025 -0300
+
+    prueba de git, agregados registros personal/consumibles/activos
+
+[33mcommit c00ff7d0f415932310db44060e507bcd78caf7eb[m
+Author: diego09090909 <di.jimenezmduocuc.cl>
+Date:   Tue Nov 11 17:02:23 2025 +0000
+
+    Primer commit

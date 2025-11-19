@@ -1,14 +1,13 @@
 package modelo;
 
-
 /**
  *
  * @author k-ort
  */
 public class MinutaDetalle {
 
+    private Minuta idMinuta;
     private int idDetalle;
-    private int idMinuta;
     private String comida; // ALMUERZO, DESAYUNO, etc.
     private String platoPrincipal;
     private String acompanamiento;
@@ -19,9 +18,9 @@ public class MinutaDetalle {
     public MinutaDetalle() {
     }
 
-    public MinutaDetalle(int idDetalle, int idMinuta, String comida, String platoPrincipal, String acompanamiento, String postre, String bebida, String observaciones) {
-        this.idDetalle = idDetalle;
+    public MinutaDetalle(Minuta idMinuta, int idDetalle, String comida, String platoPrincipal, String acompanamiento, String postre, String bebida, String observaciones) {
         this.idMinuta = idMinuta;
+        this.idDetalle = idDetalle;
         this.comida = comida;
         this.platoPrincipal = platoPrincipal;
         this.acompanamiento = acompanamiento;
@@ -30,20 +29,30 @@ public class MinutaDetalle {
         this.observaciones = observaciones;
     }
 
+    public MinutaDetalle(int idDetalle, String comida, String platoPrincipal, String acompanamiento, String postre, String bebida, String observaciones) {
+
+        this.idDetalle = idDetalle;
+        this.comida = comida;
+        this.platoPrincipal = platoPrincipal;
+        this.acompanamiento = acompanamiento;
+        this.postre = postre;
+        this.bebida = bebida;
+        this.observaciones = observaciones;}
+
+    public Minuta getIdMinuta() {
+        return idMinuta;
+    }
+
+    public void setIdMinuta(Minuta idMinuta) {
+        this.idMinuta = idMinuta;
+    }
+
     public int getIdDetalle() {
         return idDetalle;
     }
 
     public void setIdDetalle(int idDetalle) {
         this.idDetalle = idDetalle;
-    }
-
-    public int getIdMinuta() {
-        return idMinuta;
-    }
-
-    public void setIdMinuta(int idMinuta) {
-        this.idMinuta = idMinuta;
     }
 
     public String getComida() {
@@ -94,4 +103,9 @@ public class MinutaDetalle {
         this.observaciones = observaciones;
     }
 
-}
+    @Override
+    public String toString() {
+        return "MinutaDetalle{" + "idMinuta=" + idMinuta + ", idDetalle=" + idDetalle + ", comida=" + comida + ", platoPrincipal=" + platoPrincipal + ", acompanamiento=" + acompanamiento + ", postre=" + postre + ", bebida=" + bebida + ", observaciones=" + observaciones + '}';
+    }
+    
+    }

@@ -47,7 +47,7 @@
                   <Component id="jpnl_titulo" max="32767" attributes="0"/>
                   <Component id="jpnl_logo" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jpnl_menuDatos" min="-2" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
                       <Component id="jbtn_abrirDetalle" alignment="0" max="32767" attributes="0"/>
                       <Component id="jbtn_eliminar" alignment="0" max="32767" attributes="0"/>
                       <Component id="jtbtn_guardar" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jbtn_Actualizar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jbtn_agregarPlato" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -147,7 +147,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jbtn_Actualizar" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jbtn_agregarPlato" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jbtn_abrirDetalle" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -268,7 +268,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_SalirActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jbtn_Actualizar">
+        <Component class="javax.swing.JButton" name="jbtn_agregarPlato">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="cc" type="rgb"/>
@@ -282,7 +282,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_ActualizarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_agregarPlatoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -560,6 +560,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtxt_id">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_idActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator4">
           <Properties>

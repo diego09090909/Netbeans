@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author k-ort
  */
-public abstract class Minuta {
+public  class Minuta {
 
     protected int idMinuta;
     protected String tipo; // DIARIA o MENSUAL

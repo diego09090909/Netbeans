@@ -43,7 +43,7 @@ public class From_Minuta extends javax.swing.JFrame {
         jbtn_Limpiar = new javax.swing.JButton();
         jbtn_Volver = new javax.swing.JButton();
         jbtn_Salir = new javax.swing.JButton();
-        jbtn_Actualizar = new javax.swing.JButton();
+        jbtn_agregarPlato = new javax.swing.JButton();
         jpnl_titulo = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jpnl_logo = new javax.swing.JPanel();
@@ -166,13 +166,13 @@ public class From_Minuta extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Actualizar.setBackground(new java.awt.Color(204, 215, 198));
-        jbtn_Actualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jbtn_Actualizar.setText("Agregar Plato");
-        jbtn_Actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_agregarPlato.setBackground(new java.awt.Color(204, 215, 198));
+        jbtn_agregarPlato.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbtn_agregarPlato.setText("Agregar Plato");
+        jbtn_agregarPlato.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtn_agregarPlato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_ActualizarActionPerformed(evt);
+                jbtn_agregarPlatoActionPerformed(evt);
             }
         });
 
@@ -189,14 +189,14 @@ public class From_Minuta extends javax.swing.JFrame {
                     .addComponent(jbtn_abrirDetalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbtn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtbtn_guardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbtn_agregarPlato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jpan_OpcionesLayout.setVerticalGroup(
             jpan_OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_OpcionesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jbtn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_agregarPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtn_abrirDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -288,6 +288,12 @@ public class From_Minuta extends javax.swing.JFrame {
         jLabel5.setText(" dd-mm-aaaa");
 
         jlbl_ID.setText("ID");
+
+        jtxt_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_idActionPerformed(evt);
+            }
+        });
 
         jSeparator4.setBackground(new java.awt.Color(102, 102, 0));
         jSeparator4.setForeground(new java.awt.Color(102, 102, 0));
@@ -391,7 +397,7 @@ public class From_Minuta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpnl_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpnl_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jpnl_menuDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -448,7 +454,7 @@ public class From_Minuta extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_SalirActionPerformed
 
     private void jtbtn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_guardarActionPerformed
-
+        
     }//GEN-LAST:event_jtbtn_guardarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -459,34 +465,38 @@ public class From_Minuta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_nombreActionPerformed
 
-    private void jbtn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ActualizarActionPerformed
+    private void jbtn_agregarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarPlatoActionPerformed
+        
+    }//GEN-LAST:event_jbtn_agregarPlatoActionPerformed
 
-    }//GEN-LAST:event_jbtn_ActualizarActionPerformed
+    private void jtxt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_idActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new From_Minuta().setVisible(true));
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> new From_Minuta().setVisible(true));
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
@@ -499,11 +509,11 @@ public class From_Minuta extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JButton jbtn_Actualizar;
     private javax.swing.JButton jbtn_Limpiar;
     private javax.swing.JButton jbtn_Salir;
     private javax.swing.JButton jbtn_Volver;
     private javax.swing.JButton jbtn_abrirDetalle;
+    private javax.swing.JButton jbtn_agregarPlato;
     private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JLabel jlbl_ID;
     private javax.swing.JLabel jlbl_descripcion;
