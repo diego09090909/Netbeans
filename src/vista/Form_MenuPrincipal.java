@@ -84,6 +84,11 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
                 jbtn_PersonalMouseExited(evt);
             }
         });
+        jbtn_Personal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_PersonalActionPerformed(evt);
+            }
+        });
 
         jbtn_Recetas.setBackground(new java.awt.Color(123, 183, 209));
         jbtn_Recetas.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -350,6 +355,10 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     private void jbtn_InventarioActivosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseEntered
         jbtn_InventarioActivos.setBackground(new Color(74, 160, 196));
     }//GEN-LAST:event_jbtn_InventarioActivosMouseEntered
+
+    private void jbtn_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_PersonalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_PersonalActionPerformed
 
 //    /**
 //     * @param args the command line arguments
