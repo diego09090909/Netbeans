@@ -19,6 +19,7 @@ public class Form_InventarioCrud extends javax.swing.JFrame {
         initComponents();
         this.pack(); 
         this.setLocationRelativeTo(null); 
+        
     }
 
     public void limpiar() {

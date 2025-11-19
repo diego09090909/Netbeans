@@ -1,4 +1,3 @@
-
 package vista;
 
 import java.awt.Color;
@@ -8,7 +7,7 @@ import java.awt.Color;
  * @author k-ort
  */
 public class Form_MenuPrincipal extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Form_MenuPrincipal.class.getName());
 
     /**
@@ -16,6 +15,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
      */
     public Form_MenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null); 
     }
 
     /**
@@ -31,9 +31,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbtn_Empresa = new javax.swing.JButton();
         jbtn_Personal = new javax.swing.JButton();
-        jbtn_Recetas = new javax.swing.JButton();
-        jbtn_InventarioConsumibles = new javax.swing.JButton();
-        jbtn_InventarioActivos = new javax.swing.JButton();
+        jbtn_Minutas = new javax.swing.JButton();
         jbtn_InventarioActivos1 = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         jbtn_Salir = new javax.swing.JButton();
@@ -49,6 +47,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(164, 201, 223));
 
@@ -90,45 +89,22 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Recetas.setBackground(new java.awt.Color(123, 183, 209));
-        jbtn_Recetas.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jbtn_Recetas.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_Recetas.setText("Minutas");
-        jbtn_Recetas.setBorder(null);
-        jbtn_Recetas.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbtn_Minutas.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_Minutas.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jbtn_Minutas.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Minutas.setText("Minutas");
+        jbtn_Minutas.setBorder(null);
+        jbtn_Minutas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbtn_RecetasMouseEntered(evt);
+                jbtn_MinutasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbtn_RecetasMouseExited(evt);
+                jbtn_MinutasMouseExited(evt);
             }
         });
-
-        jbtn_InventarioConsumibles.setBackground(new java.awt.Color(123, 183, 209));
-        jbtn_InventarioConsumibles.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jbtn_InventarioConsumibles.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_InventarioConsumibles.setText("Inventario Consumibles");
-        jbtn_InventarioConsumibles.setBorder(null);
-        jbtn_InventarioConsumibles.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbtn_InventarioConsumiblesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbtn_InventarioConsumiblesMouseExited(evt);
-            }
-        });
-
-        jbtn_InventarioActivos.setBackground(new java.awt.Color(123, 183, 209));
-        jbtn_InventarioActivos.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jbtn_InventarioActivos.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_InventarioActivos.setText("Inventario de Activos");
-        jbtn_InventarioActivos.setBorder(null);
-        jbtn_InventarioActivos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbtn_InventarioActivosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbtn_InventarioActivosMouseExited(evt);
+        jbtn_Minutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_MinutasActionPerformed(evt);
             }
         });
 
@@ -143,6 +119,11 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jbtn_InventarioActivos1MouseExited(evt);
+            }
+        });
+        jbtn_InventarioActivos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_InventarioActivos1ActionPerformed(evt);
             }
         });
 
@@ -168,9 +149,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jbtn_InventarioActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jbtn_InventarioConsumibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jbtn_Recetas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jbtn_Minutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbtn_Personal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbtn_Empresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -183,23 +162,19 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jbtn_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jbtn_Personal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jbtn_Recetas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jbtn_InventarioConsumibles, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jbtn_InventarioActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_Minutas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jbtn_InventarioActivos1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jbtn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
+                .addGap(271, 271, 271))
         );
 
         jPanel3.setBackground(new java.awt.Color(214, 228, 245));
@@ -300,8 +275,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_EmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_EmpresaActionPerformed
-         Form_EmpresaCrud al = new Form_EmpresaCrud();
+        Form_EmpresaCrud al = new Form_EmpresaCrud();
         al.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtn_EmpresaActionPerformed
 
     private void jbtn_EmpresaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_EmpresaMouseEntered
@@ -309,28 +285,28 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_EmpresaMouseEntered
 
     private void jbtn_PersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_PersonalMouseEntered
-       jbtn_Personal.setBackground(new Color(74, 160, 196));
+        jbtn_Personal.setBackground(new Color(74, 160, 196));
     }//GEN-LAST:event_jbtn_PersonalMouseEntered
 
-    private void jbtn_RecetasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_RecetasMouseEntered
-        jbtn_Recetas.setBackground(new Color(74, 160, 196));
-    }//GEN-LAST:event_jbtn_RecetasMouseEntered
+    private void jbtn_MinutasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_MinutasMouseEntered
+        jbtn_Minutas.setBackground(new Color(74, 160, 196));
+    }//GEN-LAST:event_jbtn_MinutasMouseEntered
 
     private void jbtn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbtn_SalirActionPerformed
 
     private void jbtn_EmpresaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_EmpresaMouseExited
-        jbtn_Empresa.setBackground(new Color(123,183,209));
+        jbtn_Empresa.setBackground(new Color(123, 183, 209));
     }//GEN-LAST:event_jbtn_EmpresaMouseExited
 
     private void jbtn_PersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_PersonalMouseExited
-        jbtn_Personal.setBackground(new Color(123,183,209));
+        jbtn_Personal.setBackground(new Color(123, 183, 209));
     }//GEN-LAST:event_jbtn_PersonalMouseExited
 
-    private void jbtn_RecetasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_RecetasMouseExited
-        jbtn_Recetas.setBackground(new Color(123,183,209));
-    }//GEN-LAST:event_jbtn_RecetasMouseExited
+    private void jbtn_MinutasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_MinutasMouseExited
+        jbtn_Minutas.setBackground(new Color(123, 183, 209));
+    }//GEN-LAST:event_jbtn_MinutasMouseExited
 
     private void jbtn_InventarioActivos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1MouseEntered
         // TODO add your handling code here:
@@ -340,25 +316,23 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_InventarioActivos1MouseExited
 
-    private void jbtn_InventarioConsumiblesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseExited
-        jbtn_InventarioConsumibles.setBackground(new Color(123,183,209));
-    }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseExited
-
-    private void jbtn_InventarioConsumiblesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioConsumiblesMouseEntered
-        jbtn_InventarioConsumibles.setBackground(new Color(74, 160, 196));
-    }//GEN-LAST:event_jbtn_InventarioConsumiblesMouseEntered
-
-    private void jbtn_InventarioActivosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseExited
-        jbtn_InventarioActivos.setBackground(new Color(123,183,209));
-    }//GEN-LAST:event_jbtn_InventarioActivosMouseExited
-
-    private void jbtn_InventarioActivosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivosMouseEntered
-        jbtn_InventarioActivos.setBackground(new Color(74, 160, 196));
-    }//GEN-LAST:event_jbtn_InventarioActivosMouseEntered
-
     private void jbtn_PersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_PersonalActionPerformed
-        // TODO add your handling code here:
+        RegistroDePersonalPorContrato al = new RegistroDePersonalPorContrato();
+        al.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtn_PersonalActionPerformed
+
+    private void jbtn_InventarioActivos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_InventarioActivos1ActionPerformed
+        Form_InventarioCrud al = new Form_InventarioCrud();
+        al.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtn_InventarioActivos1ActionPerformed
+
+    private void jbtn_MinutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_MinutasActionPerformed
+        Form_Minuta al = new Form_Minuta ();
+        al.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtn_MinutasActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -397,11 +371,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbtn_Empresa;
-    private javax.swing.JButton jbtn_InventarioActivos;
     private javax.swing.JButton jbtn_InventarioActivos1;
-    private javax.swing.JButton jbtn_InventarioConsumibles;
+    private javax.swing.JButton jbtn_Minutas;
     private javax.swing.JButton jbtn_Personal;
-    private javax.swing.JButton jbtn_Recetas;
     private javax.swing.JButton jbtn_Salir;
     // End of variables declaration//GEN-END:variables
 }

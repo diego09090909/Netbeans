@@ -24,6 +24,7 @@ public class Form_EmpresaCrud extends javax.swing.JFrame {
      */
     public Form_EmpresaCrud() {
         initComponents();
+        this.setLocationRelativeTo(null); 
     }
 
     public void limpiar() {

@@ -19,7 +19,7 @@ public class Form_Inicio extends javax.swing.JFrame {
 
     public Form_Inicio() {
         initComponents();
-
+        this.setLocationRelativeTo(null); 
     }
 
     @SuppressWarnings("unchecked")

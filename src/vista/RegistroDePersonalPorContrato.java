@@ -31,6 +31,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
      */
     public RegistroDePersonalPorContrato() {
         initComponents();
+        this.setLocationRelativeTo(null); 
     }
 
     /**
