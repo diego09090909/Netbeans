@@ -1,6 +1,4 @@
-
 package modelo;
-
 
 /**
  *
@@ -8,21 +6,43 @@ package modelo;
  */
 public class MinutaDetalleIngredientes {
 
+    private Minuta idMinuta;
+    private MinutaDetalle idDetalle;
     private int idIngrediente;
-    private int idDetalle;
-    private int idProducto;
     private double cantidad;
     private String unidadMedida;
 
     public MinutaDetalleIngredientes() {
     }
 
-    public MinutaDetalleIngredientes(int idIngrediente, int idDetalle, int idProducto, double cantidad, String unidadMedida) {
-        this.idIngrediente = idIngrediente;
+    public MinutaDetalleIngredientes(Minuta idMinuta, MinutaDetalle idDetalle, int idIngrediente, double cantidad, String unidadMedida) {
+        this.idMinuta = idMinuta;
         this.idDetalle = idDetalle;
-        this.idProducto = idProducto;
+        this.idIngrediente = idIngrediente;
         this.cantidad = cantidad;
         this.unidadMedida = unidadMedida;
+    }
+
+    public MinutaDetalleIngredientes(int idIngrediente, double cantidad, String unidadMedida) {
+        this.idIngrediente = idIngrediente;
+        this.cantidad = cantidad;
+        this.unidadMedida = unidadMedida;
+    }
+
+    public Minuta getIdMinuta() {
+        return idMinuta;
+    }
+
+    public void setIdMinuta(Minuta idMinuta) {
+        this.idMinuta = idMinuta;
+    }
+
+    public MinutaDetalle getIdDetalle() {
+        return idDetalle;
+    }
+
+    public void setIdDetalle(MinutaDetalle idDetalle) {
+        this.idDetalle = idDetalle;
     }
 
     public int getIdIngrediente() {
@@ -31,22 +51,6 @@ public class MinutaDetalleIngredientes {
 
     public void setIdIngrediente(int idIngrediente) {
         this.idIngrediente = idIngrediente;
-    }
-
-    public int getIdDetalle() {
-        return idDetalle;
-    }
-
-    public void setIdDetalle(int idDetalle) {
-        this.idDetalle = idDetalle;
-    }
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
     }
 
     public double getCantidad() {
@@ -64,7 +68,10 @@ public class MinutaDetalleIngredientes {
     public void setUnidadMedida(String unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "MinutaDetalleIngredientes{" + "idMinuta=" + idMinuta + ", idDetalle=" + idDetalle + ", idIngrediente=" + idIngrediente + ", cantidad=" + cantidad + ", unidadMedida=" + unidadMedida + '}';
+    }
+
 }

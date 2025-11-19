@@ -65,4 +65,9 @@ public  class Minuta {
         this.descripcion = descripcion;
     }
 
+    @Override
+    public String toString() {
+        return "Minuta{" + "idMinuta=" + idMinuta + ", tipo=" + tipo + ", fecha=" + fecha + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    }
+
 }
