@@ -11,7 +11,7 @@ import modelo.Usuario;
 public class RegistroUsuario {
 
     public boolean guardar(Usuario usu) {
-    String query = "INSERT INTO usuario (ingreso_usuario, ingreso_contrasenia) VALUES (?, ?)";
+    String query = "INSERT INTO usuario (nombre, contrasenia) VALUES (?, ?)";
 
     try {
         Conexion con = new Conexion();
@@ -40,7 +40,7 @@ public class RegistroUsuario {
         Conexion con = new Conexion();
         Connection cnx = con.obtenerConexion();
 
-        String query = "SELECT * FROM usuario WHERE ingreso_usuario = ? AND ingreso_contrasenia = ?";
+        String query = "SELECT * FROM usuario WHERE nombre = ? AND contrasenia = ?";
         PreparedStatement stmt = cnx.prepareStatement(query);
         stmt.setString(1, u.getNombre());
         stmt.setString(2, u.getContrasena());

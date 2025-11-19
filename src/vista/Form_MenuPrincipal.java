@@ -49,9 +49,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(164, 201, 223));
+        jPanel1.setBackground(new java.awt.Color(204, 215, 198));
 
-        jbtn_Empresa.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_Empresa.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_Empresa.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_Empresa.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Empresa.setText("Empresa");
@@ -70,7 +70,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Personal.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_Personal.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_Personal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_Personal.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Personal.setText("Personal");
@@ -89,7 +89,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jbtn_Minutas.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_Minutas.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_Minutas.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_Minutas.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Minutas.setText("Minutas");
@@ -108,7 +108,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jbtn_InventarioActivos1.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_InventarioActivos1.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_InventarioActivos1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_InventarioActivos1.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_InventarioActivos1.setText("Inventario");
@@ -133,7 +133,7 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guantes-de-cocina (1).png"))); // NOI18N
         Logo.setText("BIBFUD");
 
-        jbtn_Salir.setBackground(new java.awt.Color(123, 183, 209));
+        jbtn_Salir.setBackground(new java.awt.Color(115, 196, 173));
         jbtn_Salir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jbtn_Salir.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Salir.setText("Salir");
@@ -177,9 +177,9 @@ public class Form_MenuPrincipal extends javax.swing.JFrame {
                 .addGap(271, 271, 271))
         );
 
-        jPanel3.setBackground(new java.awt.Color(214, 228, 245));
+        jPanel3.setBackground(new java.awt.Color(248, 246, 231));
 
-        jPanel2.setBackground(new java.awt.Color(164, 201, 223));
+        jPanel2.setBackground(new java.awt.Color(204, 215, 198));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

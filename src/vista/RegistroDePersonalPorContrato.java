@@ -88,9 +88,10 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jtbl_datosPersonal = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cocinero.png"))); // NOI18N
-        jLabel13.setText("logo");
+        jLabel13.setText("BIFUD");
 
         jPanel3.setBackground(new java.awt.Color(248, 246, 231));
 
@@ -382,18 +383,13 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
         jpan_InfoGeneralLayout.setHorizontalGroup(
             jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(147, 147, 147)
                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel15))
-                            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                .addComponent(jchk_indefinido)
-                                .addGap(18, 18, 18)
-                                .addComponent(jchk_Honorario)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jchk_indefinido)
+                        .addGap(18, 18, 18)
+                        .addComponent(jchk_Honorario)
+                        .addGap(749, 749, 749))
                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
@@ -422,7 +418,7 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(42, 42, 42)
                                 .addComponent(jtxt_fonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,11 +427,10 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel6))
                                         .addGap(65, 65, 65))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpan_InfoGeneralLayout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addGap(18, 18, 18))
                                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
-                                        .addComponent(jLabel8)
+                                        .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel16))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
@@ -447,15 +442,19 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtxt_agnoTerrmino, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                                        .addComponent(jtxt_agnoTerrmino))
                                     .addComponent(jtxt_cargo)
-                                    .addComponent(jtxt_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                                    .addComponent(jtxt_tipoHorario)))
+                                    .addComponent(jtxt_direccion)
+                                    .addComponent(jtxt_tipoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(86, 86, 86)
-                                .addComponent(jtxt_sueldo)))
-                        .addContainerGap(116, Short.MAX_VALUE))))
+                                .addComponent(jtxt_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(150, 150, 150))))
+            .addGroup(jpan_InfoGeneralLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel15)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpan_InfoGeneralLayout.setVerticalGroup(
             jpan_InfoGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -517,15 +516,23 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
 
         jtbl_datosPersonal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Rut", "Nombre", "Fono Fijo", "Fecha Inicio", "Cargo", "Direccion", "Tipo horario", "Sueldo", "Fecha Termino", "Contrato indefinido", "Trabajador por honorario"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jtbl_datosPersonal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -538,12 +545,12 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
+                    .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, 1306, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -552,11 +559,11 @@ public class RegistroDePersonalPorContrato extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jpan_InfoGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
