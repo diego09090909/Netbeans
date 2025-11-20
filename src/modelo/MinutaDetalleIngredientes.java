@@ -23,12 +23,6 @@ public class MinutaDetalleIngredientes {
         this.unidadMedida = unidadMedida;
     }
 
-    public MinutaDetalleIngredientes(int idIngrediente, double cantidad, String unidadMedida) {
-        this.idIngrediente = idIngrediente;
-        this.cantidad = cantidad;
-        this.unidadMedida = unidadMedida;
-    }
-
     public Minuta getIdMinuta() {
         return idMinuta;
     }

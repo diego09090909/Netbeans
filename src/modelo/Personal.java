@@ -10,8 +10,6 @@ public abstract class Personal {
 
     private String rut;
     private String cargo;
-    private String appaterno;
-    private String apmaterno;
     private String nombre;
     private String fono;
     private String direccion;
@@ -23,11 +21,9 @@ public abstract class Personal {
     public Personal() {
     }
 
-    public Personal(String rut, String cargo, String appaterno, String apmaterno, String nombre, String fono, String direccion, String tipoHorario, Date fechaNacimiento, boolean contratoIndefinido, boolean honorario) {
+    public Personal(String rut, String cargo, String nombre, String fono, String direccion, String tipoHorario, Date fechaNacimiento, boolean contratoIndefinido, boolean honorario) {
         this.rut = rut;
         this.cargo = cargo;
-        this.appaterno = appaterno;
-        this.apmaterno = apmaterno;
         this.nombre = nombre;
         this.fono = fono;
         this.direccion = direccion;
@@ -51,22 +47,6 @@ public abstract class Personal {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    public String getAppaterno() {
-        return appaterno;
-    }
-
-    public void setAppaterno(String appaterno) {
-        this.appaterno = appaterno;
-    }
-
-    public String getApmaterno() {
-        return apmaterno;
-    }
-
-    public void setApmaterno(String apmaterno) {
-        this.apmaterno = apmaterno;
     }
 
     public String getNombre() {
@@ -127,7 +107,7 @@ public abstract class Personal {
 
     @Override
     public String toString() {
-        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", appaterno=" + appaterno + ", apmaterno=" + apmaterno + ", nombre=" + nombre + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + ", fechaNacimiento=" + fechaNacimiento + ", contratoIndefinido=" + contratoIndefinido + ", honorario=" + honorario + '}';
+        return "Personal{" + "rut=" + rut + ", cargo=" + cargo + ", nombre=" + nombre + ", fono=" + fono + ", direccion=" + direccion + ", tipoHorario=" + tipoHorario + ", fechaNacimiento=" + fechaNacimiento + ", contratoIndefinido=" + contratoIndefinido + ", honorario=" + honorario + '}';
     }
 
     

@@ -1,4 +1,3 @@
-
 package CRUD;
 
 import bd.Conexion;
@@ -7,63 +6,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import modelo.PersonalPorContrato;
 
-
-
-/**
- *
- * @author ikari
- */
 public class RegistroPersonalPorContrato {
-    
-        public boolean agregarRegistroPersonalPorContrato(PersonalPorContrato contrato) {
 
+    public boolean agregarRegistroPersonalPorContrato(PersonalPorContrato contrato) {
         try {
-        Conexion con = new Conexion();
-        Connection cnx = con.obtenerConexion();
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
 
-        String query = "INSERT INTO contrato (rut, nombre, appaterno, apmaterno, fecha_inicio, fecha_termino, tipo_horario, sueldo) VALUES (?,?,?,?,?,?,?,?)";
-        PreparedStatement stmt = cnx.prepareStatement(query);
+            String query = "INSERT INTO contrato (rut, nombre, fecha_inicio, fecha_termino, tipo_horario, sueldo) VALUES (?,?,?,?,?,?)";
+            PreparedStatement stmt = cnx.prepareStatement(query);
 
-        // 1. Rut
-        stmt.setString(1, contrato.getRut());
-        // 2. Nombre
-        stmt.setString(2, contrato.getNombre());
-        // 3. Apellido paterno
-        stmt.setString(3, contrato.getAppaterno());
-        // 4. Apellido materno
-        stmt.setString(4, contrato.getApmaterno());
-        // 5. Fecha inicio SIEMPRE EXISTE
-        stmt.setDate(5, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
-        // 6. Fecha termino (puede ser null)
-        if (contrato.getFechaDeTermino() != null) {
-            stmt.setDate(6, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
-        } else {
-            stmt.setNull(6, java.sql.Types.DATE);
+            stmt.setString(1, contrato.getRut());
+            stmt.setString(2, contrato.getNombre());
+            stmt.setDate(3, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
+
+            if (contrato.getFechaDeTermino() != null) {
+                stmt.setDate(4, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
+            } else {
+                stmt.setNull(4, java.sql.Types.DATE);
+            }
+
+            stmt.setString(5, contrato.getTipoHorario());
+            stmt.setInt(6, contrato.getSueldo());
+
+            stmt.executeUpdate();
+            stmt.close();
+            cnx.close();
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Error al agregar Personal: " + e.getMessage());
+            return false;
         }
-        // 7. Tipo horario
-        stmt.setString(7, contrato.getTipoHorario());
-        // 8. Sueldo
-        stmt.setInt(8, contrato.getSueldo());
-        
-        // Ejecutar
-        stmt.executeUpdate();
-        // Cerrar
-        stmt.close();
-        cnx.close();
-
-        return true;
-
-    } catch (SQLException e) {
-        System.out.println("Error al agregar Personal: " + e.getMessage());
-        return false;
     }
-}
 
-        public boolean eliminar(String rut) {
+    public boolean eliminar(String rut) {
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
@@ -84,70 +64,60 @@ public class RegistroPersonalPorContrato {
             return false;
         }
     }
-        public List<PersonalPorContrato> listarTodos() {
 
+    public List<PersonalPorContrato> listarTodos() {
         List<PersonalPorContrato> listaContrato = new ArrayList<>();
 
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "SELECT * FROM empresa order by nombre";
+            String query = "SELECT * FROM contrato ORDER BY nombre";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                
                 PersonalPorContrato cont = new PersonalPorContrato();
-                
+
                 cont.setRut(rs.getString("rut"));
                 cont.setNombre(rs.getString("nombre"));
-                cont.setAppaterno(rs.getString("appaterno"));
-                cont.setApmaterno(rs.getString("apmaterno"));
-                cont.setFechaDeInicio(rs.getDate("fecha_incio"));
+                cont.setFechaDeInicio(rs.getDate("fecha_inicio"));
                 cont.setFechaDeTermino(rs.getDate("fecha_termino"));
                 cont.setTipoHorario(rs.getString("tipo_horario"));
                 cont.setSueldo(rs.getInt("sueldo"));
-                
-                
-                listaContrato.add(cont);
 
+                listaContrato.add(cont);
             }
+
             rs.close();
             stmt.close();
             cnx.close();
-            
 
         } catch (SQLException e) {
-             System.out.println("Error al listar el personal con contrato: " +e.getMessage());
+            System.out.println("Error al listar el personal con contrato: " + e.getMessage());
         }
         return listaContrato;
     }
-    
-        public boolean actualizar(PersonalPorContrato contrato) {
+
+    public boolean actualizar(PersonalPorContrato contrato) {
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "UPDATE empresa SET rut = ?,nombre=?,fono_fijo =?,direccion=?,contrato_indefinido =?,fecha_inicio=?,fecha_termino=? WHERE rut =?";
+            String query = "UPDATE contrato SET nombre=?, fecha_inicio=?, fecha_termino=?, tipo_horario=?, sueldo=? WHERE rut=?";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, contrato.getRut());
-            stmt.setString(2, contrato.getNombre());
-            stmt.setString(3, contrato.getFono());
-            stmt.setString(4, contrato.getDireccion());
-            stmt.setBoolean(5, contrato.isEsIndefinido());
-            stmt.setBoolean(6, contrato.isHonorario());
-            stmt.setDate(7, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
-            stmt.setDate(8, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
-            
-
+            stmt.setString(1, contrato.getNombre());
+            stmt.setDate(2, new java.sql.Date(contrato.getFechaDeInicio().getTime()));
             if (contrato.getFechaDeTermino() != null) {
-                stmt.setDate(9, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
+                stmt.setDate(3, new java.sql.Date(contrato.getFechaDeTermino().getTime()));
             } else {
-                stmt.setNull(9, java.sql.Types.DATE);
+                stmt.setNull(3, java.sql.Types.DATE);
             }
-            stmt.setString(10, contrato.getRut());
+            stmt.setString(4, contrato.getTipoHorario());
+            stmt.setInt(5, contrato.getSueldo());
+            stmt.setString(6, contrato.getRut());
+
             int filas = stmt.executeUpdate();
 
             stmt.close();
@@ -155,36 +125,33 @@ public class RegistroPersonalPorContrato {
             return filas > 0;
 
         } catch (SQLException e) {
-            System.out.println("Error al actualizar el Libro: " + e.getMessage());
+            System.out.println("Error al actualizar el contrato: " + e.getMessage());
             return false;
         }
     }
-        
-        public PersonalPorContrato buscarPorRut(String rut) {
-        PersonalPorContrato contrato = new PersonalPorContrato();
+  
+
+    public PersonalPorContrato buscarPorRut(String rut) {
+        PersonalPorContrato contrato = null;
 
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "SELECT * FROM empresa WHERE rut = ?";
+            String query = "SELECT * FROM contrato WHERE rut = ?";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, rut);
 
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-
+                contrato = new PersonalPorContrato();
                 contrato.setRut(rs.getString("rut"));
                 contrato.setNombre(rs.getString("nombre"));
-                contrato.setFono(rs.getString("fono_fijo"));
-                contrato.setDireccion(rs.getString("direccion"));
-
-                contrato.setEsIndefinido(rs.getBoolean("contrato_indefinido"));
-                contrato.setHonorario(rs.getBoolean("por_honorario"));
                 contrato.setFechaDeInicio(rs.getDate("fecha_inicio"));
                 contrato.setFechaDeTermino(rs.getDate("fecha_termino"));
-
+                contrato.setTipoHorario(rs.getString("tipo_horario"));
+                contrato.setSueldo(rs.getInt("sueldo"));
             }
 
             rs.close();
@@ -192,8 +159,7 @@ public class RegistroPersonalPorContrato {
             cnx.close();
 
         } catch (SQLException e) {
-            System.out.println("Error al listar el libro: " + e.getMessage());
-
+            System.out.println("Error al buscar contrato: " + e.getMessage());
         }
         return contrato;
     }

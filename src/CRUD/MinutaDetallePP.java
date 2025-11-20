@@ -21,15 +21,18 @@ public class MinutaDetallePP {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "INSERT INTO minuta_detalle (id_detalle, comida, plato_principal, acompanamiento, postre, bebida, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO minuta_detalle (id_minuta, id_detalle, comida, plato_principal, acompanamiento, postre, bebida, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, md.getIdDetalle());
-            stmt.setString(2, md.getComida());
-            stmt.setString(3, md.getPlatoPrincipal());
-            stmt.setString(4, md.getAcompanamiento());
-            stmt.setString(5, md.getPostre());
-            stmt.setString(6, md.getBebida());
-            stmt.setString(7, md.getObservaciones());
+
+            // id_minuta viene del objeto Minuta asociado
+            stmt.setInt(1, md.getIdMinuta().getIdMinuta());
+            stmt.setInt(2, md.getIdDetalle());
+            stmt.setString(3, md.getComida());
+            stmt.setString(4, md.getPlatoPrincipal());
+            stmt.setString(5, md.getAcompanamiento());
+            stmt.setString(6, md.getPostre());
+            stmt.setString(7, md.getBebida());
+            stmt.setString(8, md.getObservaciones());
 
             stmt.executeUpdate();
             stmt.close();

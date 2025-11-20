@@ -36,7 +36,6 @@ public class From_MinutaDetalle extends javax.swing.JFrame {
         jtxt_IdDetalle.requestFocus();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -423,7 +422,7 @@ public class From_MinutaDetalle extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_SalirActionPerformed
 
     private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
-        Form_MenuPrincipal menu = new Form_MenuPrincipal();
+        Form_Minuta menu = new Form_Minuta();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jbtn_VolverActionPerformed
@@ -546,30 +545,40 @@ public class From_MinutaDetalle extends javax.swing.JFrame {
 
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
 
+        try {
+            // Validación básica
+            if (jtxt_Minuta.getText().trim().isEmpty() || jtxt_IdDetalle.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar IdMinuta e IdDetalle.", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-        Minuta m = new Minuta();
-        m.setIdMinuta(Integer.parseInt(jtxt_Minuta.getText()));
+            // Creamos el objeto Minuta
+            Minuta m = new Minuta();
+            m.setIdMinuta(Integer.parseInt(jtxt_Minuta.getText().trim()));
 
+            // Creamos el objeto MinutaDetalle
+            MinutaDetalle md = new MinutaDetalle();
+            md.setIdMinuta(m);
+            md.setIdDetalle(Integer.parseInt(jtxt_IdDetalle.getText().trim()));
+            md.setComida(jtxt_Comida.getText().trim());
+            md.setPlatoPrincipal(jtxt_Plato.getText().trim());
+            md.setAcompanamiento(jtxt_Acompanamiento.getText().trim());
+            md.setPostre(jtxt_Postre.getText().trim());
+            md.setBebida(jtxt_Bebida.getText().trim());
+            md.setObservaciones(jtxt_Observaciones.getText().trim());
 
-        MinutaDetalle md = new MinutaDetalle();
+            // Llamamos al DAO
+            MinutaDetallePP pp = new MinutaDetallePP();
+            boolean exito = pp.insertar(md);
 
-        md.setIdMinuta(m); 
-        md.setIdDetalle(Integer.parseInt(jtxt_IdDetalle.getText()));
-        md.setComida(jtxt_Comida.getText());
-        md.setPlatoPrincipal(jtxt_Plato.getText());
-        md.setAcompanamiento(jtxt_Acompanamiento.getText());
-        md.setPostre(jtxt_Postre.getText());
-        md.setBebida(jtxt_Bebida.getText());
-        md.setObservaciones(jtxt_Observaciones.getText());
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Detalle agregado correctamente.", "Agregar", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "ERROR al agregar el detalle.", "Agregar", JOptionPane.ERROR_MESSAGE);
+            }
 
-
-        MinutaDetallePP pp = new MinutaDetallePP();
-        boolean exito = pp.insertar(md);
-
-        if (exito) {
-            JOptionPane.showMessageDialog(this, "Detalle agregado correctamente.");
-        } else {
-            JOptionPane.showMessageDialog(this, "ERROR al agregar el detalle.");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "IdMinuta e IdDetalle deben ser números válidos.", "Validación", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
 

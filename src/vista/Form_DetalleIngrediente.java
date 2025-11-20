@@ -5,10 +5,11 @@
 package vista;
 
 import CRUD.MinutaDetalleIngredientesPP;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelo.Minuta;
+import modelo.MinutaDetalle;
 import modelo.MinutaDetalleIngredientes;
 
 /**
@@ -449,116 +450,115 @@ public class Form_DetalleIngrediente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbtn_agregarActionPerformed
-        int idIngrediente = 0;
-        double cantidad = 0;
-        String unidad;
 
         try {
-            idIngrediente = Integer.parseInt(this.jtxt_idIngrediente.getText());
+
+            int idIngrediente = Integer.parseInt(this.jtxt_idIngrediente.getText().trim());
+            int idMinuta = Integer.parseInt(this.jtxt_idMinuta.getText().trim());
+            int idDetalle = Integer.parseInt(this.jtxt_idDetalle.getText().trim());
+            double cantidad = Double.parseDouble(this.jtxt_cantidad.getText().trim());
+            String unidad = this.jcmb_unidadMedida.getSelectedItem().toString();
+
+            if (unidad.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Selecciona una unidad de medida", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            Minuta m = new Minuta();
+            m.setIdMinuta(idMinuta);
+
+            MinutaDetalle d = new MinutaDetalle();
+            d.setIdDetalle(idDetalle);
+
+            MinutaDetalleIngredientes mdi = new MinutaDetalleIngredientes(m, d, idIngrediente, cantidad, unidad);
+
+            MinutaDetalleIngredientesPP reg = new MinutaDetalleIngredientesPP();
+            if (reg.insertar(mdi)) {
+                JOptionPane.showMessageDialog(this, "Ingrediente agregado correctamente", "Agregar", JOptionPane.INFORMATION_MESSAGE);
+                this.limpiar();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo agregar el ingrediente", "Agregar", JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "ID Ingrediente inválido", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_idIngrediente.requestFocus();
-            return;
-        }
-
-        try {
-            cantidad = Double.parseDouble(this.jtxt_cantidad.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Cantidad inválida", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_cantidad.requestFocus();
-            return;
-        }
-
-        unidad = this.jcmb_unidadMedida.getSelectedItem().toString();
-
-        if (unidad.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Selecciona una unidad de medida", "Validación", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        MinutaDetalleIngredientes mdi = new MinutaDetalleIngredientes(idIngrediente, cantidad, unidad);
-        MinutaDetalleIngredientesPP reg = new MinutaDetalleIngredientesPP();
-
-        if (reg.insertar(mdi)) {
-            JOptionPane.showMessageDialog(this, "Ingrediente agregado correctamente", "Agregar", JOptionPane.INFORMATION_MESSAGE);
-            this.limpiar();
-        } else {
-            JOptionPane.showMessageDialog(this, "No se pudo agregar el ingrediente", "Agregar", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Verifica que los campos numéricos sean válidos", "Validación", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtbtn_agregarActionPerformed
 
     private void jbtn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ActualizarActionPerformed
 
-        int idIngrediente = 0;
-        double cantidad = 0;
-        String unidad;
-
         try {
-            idIngrediente = Integer.parseInt(this.jtxt_idIngrediente.getText());
+            int idIngrediente = Integer.parseInt(this.jtxt_idIngrediente.getText().trim());
+            int idMinuta = Integer.parseInt(this.jtxt_idMinuta.getText().trim());
+            int idDetalle = Integer.parseInt(this.jtxt_idDetalle.getText().trim());
+            double cantidad = Double.parseDouble(this.jtxt_cantidad.getText().trim());
+            String unidad = this.jcmb_unidadMedida.getSelectedItem().toString();
+
+            if (unidad.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Selecciona una unidad de medida", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Creamos los objetos Minuta y MinutaDetalle
+            Minuta m = new Minuta();
+            m.setIdMinuta(idMinuta);
+
+            MinutaDetalle d = new MinutaDetalle();
+            d.setIdDetalle(idDetalle);
+
+            // Creamos el objeto principal con todos los datos
+            MinutaDetalleIngredientes mdi = new MinutaDetalleIngredientes();
+            mdi.setIdIngrediente(idIngrediente);
+            mdi.setIdMinuta(m);
+            mdi.setIdDetalle(d);
+            mdi.setCantidad(cantidad);
+            mdi.setUnidadMedida(unidad);
+
+            // Llamamos al DAO
+            MinutaDetalleIngredientesPP reg = new MinutaDetalleIngredientesPP();
+            if (reg.actualizar(mdi)) {
+                JOptionPane.showMessageDialog(this, "Ingrediente actualizado correctamente", "Actualización", JOptionPane.INFORMATION_MESSAGE);
+                this.limpiar();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar el ingrediente", "Actualización", JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "ID Ingrediente inválido", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_idIngrediente.requestFocus();
-            return;
-        }
-
-        try {
-            cantidad = Double.parseDouble(this.jtxt_cantidad.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Cantidad inválida", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.jtxt_cantidad.requestFocus();
-            return;
-        }
-
-        unidad = this.jcmb_unidadMedida.getSelectedItem().toString();
-
-        if (unidad.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Selecciona una unidad de medida", "Validación", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        MinutaDetalleIngredientes mdi = new MinutaDetalleIngredientes();
-        mdi.setIdIngrediente(idIngrediente);
-        mdi.setCantidad(cantidad);
-        mdi.setUnidadMedida(unidad);
-
-        MinutaDetalleIngredientesPP reg = new MinutaDetalleIngredientesPP();
-
-        if (reg.actualizar(mdi)) {
-            JOptionPane.showMessageDialog(this, "Ingrediente actualizado correctamente", "Actualización", JOptionPane.INFORMATION_MESSAGE);
-            this.limpiar();
-        } else {
-            JOptionPane.showMessageDialog(this, "No se pudo actualizar el ingrediente", "Actualización", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Verifica que los campos numéricos sean válidos", "Validación", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_jbtn_ActualizarActionPerformed
 
     private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
-        String idIngredienteStr = jtxt_idIngrediente.getText().trim();
+        String idDetalleStr = jtxt_idDetalle.getText().trim();
 
-        if (idIngredienteStr.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingresa el ID del ingrediente a eliminar", "Validación", JOptionPane.WARNING_MESSAGE);
-            jtxt_idIngrediente.requestFocus();
+        if (idDetalleStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresa el ID del detalle a eliminar", "Validación", JOptionPane.WARNING_MESSAGE);
+            jtxt_idDetalle.requestFocus();
             return;
         }
 
-        int idIngrediente = 0;
+        int idDetalle = 0;
 
         try {
-            idIngrediente = Integer.parseInt(idIngredienteStr);
+            idDetalle = Integer.parseInt(idDetalleStr);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "ID Ingrediente inválido", "Validación", JOptionPane.WARNING_MESSAGE);
-            jtxt_idIngrediente.requestFocus();
+            JOptionPane.showMessageDialog(this, "ID Detalle inválido", "Validación", JOptionPane.WARNING_MESSAGE);
+            jtxt_idDetalle.requestFocus();
             return;
         }
 
-        int confirm = JOptionPane.showConfirmDialog(this, "¿Eliminar ingrediente con ID " + idIngrediente + "?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(this,
+                "¿Eliminar registro con ID Detalle " + idDetalle + "?",
+                "Confirmar", JOptionPane.YES_NO_OPTION);
+
         if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
 
-        MinutaDetalleIngredientesPP dao = new MinutaDetalleIngredientesPP();
+        MinutaDetalleIngredientesPP pp = new MinutaDetalleIngredientesPP();
 
-        if (dao.eliminar(idIngrediente)) {
+        if (pp.eliminar(idDetalle)) {
             JOptionPane.showMessageDialog(this, "Ingrediente eliminado correctamente", "Eliminar", JOptionPane.INFORMATION_MESSAGE);
             this.limpiar();
         } else {
@@ -569,93 +569,98 @@ public class Form_DetalleIngrediente extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_eliminarActionPerformed
 
     private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
-        MinutaDetalleIngredientesPP dao = new MinutaDetalleIngredientesPP();
-        List<MinutaDetalleIngredientes> lista = dao.listar();
+        MinutaDetalleIngredientesPP pp = new MinutaDetalleIngredientesPP();
+        List<MinutaDetalleIngredientes> lista = pp.listarTodos(); // usar listarTodos()
 
         DefaultTableModel modelo = (DefaultTableModel) jtbl_datos.getModel();
         modelo.setRowCount(0); // Limpiar tabla
 
         for (MinutaDetalleIngredientes mdi : lista) {
             Object[] fila = new Object[5];
-            fila[0] = mdi.getIdMinuta() != null ? mdi.getIdMinuta().getIdMinuta() : "";
-            fila[1] = mdi.getIdDetalle() != null ? mdi.getIdDetalle().getIdDetalle() : "";
+            fila[0] = (mdi.getIdMinuta() != null) ? mdi.getIdMinuta().getIdMinuta() : "";
+            fila[1] = (mdi.getIdDetalle() != null) ? mdi.getIdDetalle().getIdDetalle() : "";
             fila[2] = mdi.getIdIngrediente();
             fila[3] = mdi.getCantidad();
             fila[4] = mdi.getUnidadMedida();
             modelo.addRow(fila);
         }
 
-        JOptionPane.showMessageDialog(this, "Se listaron " + lista.size() + " ingredientes", "Listar", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,
+                "Se listaron " + lista.size() + " ingredientes",
+                "Listar", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jbtn_listarActionPerformed
 
     private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
-        String idIngredienteStr = jtxt_idIngrediente.getText().trim();
-        String idMinutaStr = jtxt_idMinuta.getText().trim();
-        String idDetalleStr = jtxt_idDetalle.getText().trim();
+        {
+            String idIngredienteStr = jtxt_idIngrediente.getText().trim();
+            String idMinutaStr = jtxt_idMinuta.getText().trim();
+            String idDetalleStr = jtxt_idDetalle.getText().trim();
 
-        int camposUsados = 0;
-        if (!idIngredienteStr.isEmpty()) {
-            camposUsados++;
-        }
-        if (!idMinutaStr.isEmpty()) {
-            camposUsados++;
-        }
-        if (!idDetalleStr.isEmpty()) {
-            camposUsados++;
-        }
+            int camposUsados = 0;
+            if (!idIngredienteStr.isEmpty()) {
+                camposUsados++;
+            }
+            if (!idMinutaStr.isEmpty()) {
+                camposUsados++;
+            }
+            if (!idDetalleStr.isEmpty()) {
+                camposUsados++;
+            }
 
-        if (camposUsados == 0) {
-            JOptionPane.showMessageDialog(this, "Ingresa al menos un campo para buscar", "Validación", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+            if (camposUsados == 0) {
+                JOptionPane.showMessageDialog(this, "Ingresa al menos un campo para buscar", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-        if (camposUsados > 1) {
-            JOptionPane.showMessageDialog(this, "Solo se permite buscar por un campo a la vez", "Validación", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+            if (camposUsados > 1) {
+                JOptionPane.showMessageDialog(this, "Solo se permite buscar por un campo a la vez", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-        MinutaDetalleIngredientesPP dao = new MinutaDetalleIngredientesPP();
-
-        if (!idIngredienteStr.isEmpty()) {
-            try {
-                int idIngrediente = Integer.parseInt(idIngredienteStr);
-                MinutaDetalleIngredientes mdi = dao.buscarPorId(idIngrediente);
-                if (mdi != null) {
-                    jtxt_cantidad.setText(String.valueOf(mdi.getCantidad()));
-                    jcmb_unidadMedida.setSelectedItem(mdi.getUnidadMedida());
-                    JOptionPane.showMessageDialog(this, "Ingrediente encontrado", "Buscar", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Ingrediente no encontrado", "Buscar", JOptionPane.ERROR_MESSAGE);
+            MinutaDetalleIngredientesPP pp = new MinutaDetalleIngredientesPP();
+            if (!idIngredienteStr.isEmpty()) {
+                try {
+                    int idIngrediente = Integer.parseInt(idIngredienteStr);
+                    MinutaDetalleIngredientes mdi = pp.buscarPorIdDetalle(idIngrediente);
+                    if (mdi != null) {
+                        jtxt_idMinuta.setText(String.valueOf(mdi.getIdMinuta().getIdMinuta()));
+                        jtxt_idDetalle.setText(String.valueOf(mdi.getIdDetalle().getIdDetalle()));
+                        jtxt_cantidad.setText(String.valueOf(mdi.getCantidad()));
+                        jcmb_unidadMedida.setSelectedItem(mdi.getUnidadMedida());
+                        JOptionPane.showMessageDialog(this, "Ingrediente encontrado", "Buscar", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Ingrediente no encontrado", "Buscar", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "ID Ingrediente inválido", "Validación", JOptionPane.WARNING_MESSAGE);
                 }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "ID Ingrediente inválido", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
             }
-            return;
-        }
 
-        if (!idMinutaStr.isEmpty()) {
-            try {
-                int idMinuta = Integer.parseInt(idMinutaStr);
-                List<MinutaDetalleIngredientes> lista = dao.listarPorMinuta(idMinuta);
-                JOptionPane.showMessageDialog(this, "Se encontraron " + lista.size() + " ingredientes", "Buscar", JOptionPane.INFORMATION_MESSAGE);
-                // Aquí podrías llenar una tabla con los resultados
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "ID Minuta inválido", "Validación", JOptionPane.WARNING_MESSAGE);
+            if (!idMinutaStr.isEmpty()) {
+                try {
+                    int idMinuta = Integer.parseInt(idMinutaStr);
+                    List<MinutaDetalleIngredientes> lista = (List<MinutaDetalleIngredientes>) pp.buscarPorIdDetalle(idMinuta); // usar listarPorMinuta
+                    JOptionPane.showMessageDialog(this, "Se encontraron " + lista.size() + " ingredientes", "Buscar", JOptionPane.INFORMATION_MESSAGE);
+                    // Aquí podrías llenar la tabla con los resultados
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "ID Minuta inválido", "Validación", JOptionPane.WARNING_MESSAGE);
+                }
+                return;
             }
-            return;
+
+            if (!idDetalleStr.isEmpty()) {
+                try {
+                    int idDetalle = Integer.parseInt(idDetalleStr);
+                    List<MinutaDetalleIngredientes> lista = (List<MinutaDetalleIngredientes>) pp.buscarPorIdDetalle(idDetalle); // usar listarPorDetalle
+                    JOptionPane.showMessageDialog(this, "Se encontraron " + lista.size() + " ingredientes", "Buscar", JOptionPane.INFORMATION_MESSAGE);
+                    // Aquí también podrías llenar la tabla con los resultados
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "ID Detalle inválido", "Validación", JOptionPane.WARNING_MESSAGE);
+                }
+            }
         }
-
-        if (!idDetalleStr.isEmpty()) {
-            try {
-                int idDetalle = Integer.parseInt(idDetalleStr);
-                List<MinutaDetalleIngredientes> lista = dao.listarPorDetalle(idDetalle);
-                JOptionPane.showMessageDialog(this, "Se encontraron " + lista.size() + " ingredientes", "Buscar", JOptionPane.INFORMATION_MESSAGE);
-                // Aquí también podrías llenar una tabla con los resultados
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "ID Detalle inválido", "Validación", JOptionPane.WARNING_MESSAGE);
-            }}
-
 
     }//GEN-LAST:event_jbtn_BuscarActionPerformed
 
@@ -664,7 +669,7 @@ public class Form_DetalleIngrediente extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_LimpiarActionPerformed
 
     private void jbtn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_VolverActionPerformed
-        Form_DetalleIngrediente menu = new Form_DetalleIngrediente();
+        From_MinutaDetalle menu = new From_MinutaDetalle();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jbtn_VolverActionPerformed
